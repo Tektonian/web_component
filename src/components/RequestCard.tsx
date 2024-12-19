@@ -45,7 +45,7 @@ const RequestCard = ({
     switch (request_status) {
       case 0:
         return {
-          border: "none",
+          border: '1px solid #d3d3d3',
           backgroundColor: "#ffffff",
         };
       case 3:

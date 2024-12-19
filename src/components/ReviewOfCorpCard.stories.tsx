@@ -1,12 +1,11 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom"; 
-import ReviewOfCorp, { ReviewOfCorpProps } from "./ReviewOfCorp";
-import { RequestCardProps } from "./RequestCard";
+import ReviewOfCorpCard, { ReviewOfCorpCardProps } from "./ReviewOfCorpCard";
 
-const meta: Meta<typeof ReviewOfCorp> = {
-  title: "Components/ReviewOfCorp",
-  component: ReviewOfCorp,
+const meta: Meta<typeof ReviewOfCorpCard> = {
+  title: "Components/ReviewOfCorpCard",
+  component: ReviewOfCorpCard,
   argTypes: {
     review_text: { control: "text" },
     prep_requirement: { control: "text" },
@@ -24,19 +23,9 @@ const meta: Meta<typeof ReviewOfCorp> = {
 
 export default meta;
 
-const requestCardExample: RequestCardProps = {
-  title: "Web Development Project",
-  subtitle: "Looking for a Frontend Developer",
-  reward_price: 3000,
-  currency: "USD",
-  address: "Remote",
-  start_date: new Date("2024-01-10"),
-  logo_image: "https://via.placeholder.com/150",
-  link: "/details/1",
-};
 
-export const Default: StoryFn<ReviewOfCorpProps> = (args) => (
-  <ReviewOfCorp {...args} request_card={requestCardExample} />
+export const Default: StoryFn<ReviewOfCorpCardProps> = (args) => (
+  <ReviewOfCorpCard {...args} />
 );
 
 Default.args = {

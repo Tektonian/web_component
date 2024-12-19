@@ -24,9 +24,6 @@ const IndexCard: React.FC<IndexCardProps> = ({ sections, roles }) => {
             }}
         >
             <CardContent>
-                <Typography variant="h6" sx={{ marginBottom: '16px', fontFamily: 'Noto Sans KR' }}>
-                    {roles === "student" ? "학생용 메뉴" : roles === "corp" ? "기업용 메뉴" : "기본 메뉴"}
-                </Typography>
                 <List>
                     {roles === "student" && (
                         <>
@@ -80,21 +77,21 @@ const IndexCard: React.FC<IndexCardProps> = ({ sections, roles }) => {
                                 <ListItemIcon>
                                     <WorkIcon color="primary" />
                                 </ListItemIcon>
-                                <ListItemText primary="진행 중인 리뷰" sx={{ fontFamily: 'Noto Sans KR' }} />
+                                <ListItemText primary="진행 중인 의뢰" sx={{ fontFamily: 'Noto Sans KR' }} />
                             </ListItemButton>
 
                             <ListItemButton component="a" href="#2">
                                 <ListItemIcon>
                                     <ReviewsIcon color="primary" />
                                 </ListItemIcon>
-                                <ListItemText primary="모집 중인 리뷰" sx={{ fontFamily: 'Noto Sans KR' }} />
+                                <ListItemText primary="모집 중인 의뢰" sx={{ fontFamily: 'Noto Sans KR' }} />
                             </ListItemButton>
 
                             <ListItemButton component="a" href="#3">
                                 <ListItemIcon>
                                     <HistoryIcon color="primary" />
                                 </ListItemIcon>
-                                <ListItemText primary="과거 리뷰" sx={{ fontFamily: 'Noto Sans KR' }} />
+                                <ListItemText primary="과거 의뢰" sx={{ fontFamily: 'Noto Sans KR' }} />
                             </ListItemButton>
                         </>
                     )}

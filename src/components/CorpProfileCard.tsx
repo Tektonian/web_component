@@ -1,10 +1,9 @@
 import React from 'react';
 import { Card, CardContent, Box, Typography, Grid2 as Grid, IconButton } from '@mui/material';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import EditIcon from '@mui/icons-material/Edit';
 import '@fontsource/noto-sans-kr';
 
-export interface CorpProfileProps {
+export interface CorpProfileData {
     corp_name: string;
     nationality: string;
     ceo_name?: string;
@@ -22,7 +21,7 @@ export interface CorpProfileProps {
     onEditClick?: () => void;
 }
 
-const CorpProfileCard: React.FC<CorpProfileProps> = ({
+const CorpProfileCard: React.FC<CorpProfileData> = ({
     corp_name,
     nationality,
     ceo_name,

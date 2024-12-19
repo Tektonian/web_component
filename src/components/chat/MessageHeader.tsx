@@ -1,32 +1,53 @@
-import React, { MouseEventHandler } from "react"
-import { Text, Box, Flex, Separator } from "@radix-ui/themes"
-import { ArrowLeftIcon, DotsVerticalIcon} from "@radix-ui/react-icons"
-import { Button } from "@mui/joy"
-interface MessageHeaderProps {
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+
+export interface MessageHeaderProps {
     username: string;
-    onClickArrow: MouseEventHandler;
-    onClickMenu: MouseEventHandler;
+    onClickArrow: React.MouseEventHandler;
+    onClickUser: React.MouseEventHandler;
 }
 
-
-const MessageHeader = (props: MessageHeaderProps) => {
-    const {username, onClickArrow, onClickMenu} = props;
+const MessageHeader: React.FC<MessageHeaderProps> = ({ username, onClickArrow, onClickUser }) => {
     return (
-        <Box pb="2">
-            <Flex direction="row" gapX="2" align="center" justify="between" pb="4">
-
-                <Button startDecorator={<ArrowLeftIcon />} onClick={onClickArrow} /> 
-
-                <Text>{username}</Text>
-
-                {/* gap */}
-                <Box flexGrow="1" />
-                
-                <Button startDecorator={<DotsVerticalIcon />} onClick={onClickMenu} />
-            </Flex>
-            <Separator orientation="horizontal" size="4" />
-        </Box>
-    )
-}
+        <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
+            <Toolbar>
+                <IconButton
+                    edge="start"
+                    onClick={onClickArrow}
+                    aria-label="navigate back"
+                    sx={{
+                        padding: 0,
+                        color: 'inherit',
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                        },
+                    }}
+                >
+                    <NavigateBeforeIcon />
+                </IconButton>
+                <Button
+                    onClick={onClickUser}
+                    sx={{
+                        textTransform: 'none',
+                        padding: 0,
+                        color: 'inherit',
+                        '&:hover': {
+                            backgroundColor: 'transparent',
+                        },
+                    }}
+                >
+                    <Typography variant="h6" component="span">
+                        {username}
+                    </Typography>
+                </Button>
+            </Toolbar>
+        </AppBar>
+    );
+};
 
 export default MessageHeader;

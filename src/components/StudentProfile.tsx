@@ -24,7 +24,7 @@ export interface StudentProfileProps {
     email_verified?: Date;
     gender: "남자" | "여지" | "표시하지 않음" | "";
     image: string;
-    has_car?: boolean;
+    has_car?: 0 | 1;
     keyword_list?: object;
     created_at?: Date;
     updated_at?: Date;

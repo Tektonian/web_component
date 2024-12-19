@@ -1,44 +1,56 @@
-import React from "react"
-import ChatRoom from "./ChatRoom"
-import { ScrollArea, Flex } from "@radix-ui/themes"
-import { ClickArea } from "@toss/react"
+import React from 'react';
+import ChatRoom from './ChatRoom';
+import { List } from '@mui/material';
 
-const args = [{
-    image: undefined,
-    title: "Kang",
-    lastMessage: "HHhhhhhhhhhhhhhhhhhhhhhhhhhhhey",
-    lastSentAt: new Date(),
-    unreadCount: 2,
-}, {
-    image: undefined,
-    title: "Kang",
-    lastMessage: "HHhhhhhhhhhhhhhhhhhhhhhhhhhhhey",
-    lastSentAt: new Date(),
-    unreadCount: 0,
-}, {
-    image: undefined,
-    title: "Kang",
-    lastMessage: "Hey",
-    lastSentAt: new Date(),
-    unreadCount: 2,
-}]
-
-const ChatRoomList = () => {
-
-    return(
-        <ScrollArea scrollbars="vertical" style={{ width: "300px", maxWidth: "400px"}}>
-            <Flex direction="column" gap="2"  >
-                {args.map((arg, idx) => (
-                    <ChatRoom 
-                        image={arg.image}
-                        title={arg.title}
-                        lastMessage={arg.lastMessage}
-                        lastSentAt={arg.lastSentAt}
-                        unreadCount={arg.unreadCount}/>
-                ))}
-            </Flex>
-        </ScrollArea>
-    )
+interface ChatRoomListProps {
+    isCheckbox: boolean;
+    handleCheckboxToggle: (chatRoomId: string, checked: boolean) => void;
+    handleLongPress: () => void;
+    handleContextMenu: () => void;
+    handleClick: () => void;
+    chatRooms: {
+        chatRoomId: string;
+        title: string;
+        lastMessage: string;
+        lastSentAt: Date;
+        unreadCount: number;
+        image?: string;
+        enabled: boolean;
+    }[];
+    selectedRooms: string[];
 }
+
+const ChatRoomList: React.FC<ChatRoomListProps> = ({
+    isCheckbox,
+    handleCheckboxToggle,
+    handleLongPress,
+    handleContextMenu,
+    handleClick,
+    chatRooms,
+    selectedRooms
+}) => {
+    return (
+        <List style={{ width: '100%', maxWidth: 360, backgroundColor: '#f9f9f9' }}>
+            {chatRooms.map((room) => (
+                <ChatRoom
+                    key={room.chatRoomId}
+                    chatRoomId={room.chatRoomId}
+                    title={room.title}
+                    lastMessage={room.lastMessage}
+                    lastSentAt={room.lastSentAt}
+                    unreadCount={room.unreadCount}
+                    image={room.image}
+                    enabled={room.enabled}
+                    isCheckbox={isCheckbox}
+                    checked={selectedRooms.includes(room.chatRoomId)}
+                    onClick={() => handleClick()}
+                    onContextMenu={() => handleContextMenu()}
+                    onLongPress={() => handleLongPress()}
+                    onCheckboxToggle={(checked) => handleCheckboxToggle(room.chatRoomId, checked)}
+                />
+            ))}
+        </List>
+    );
+};
 
 export default ChatRoomList;

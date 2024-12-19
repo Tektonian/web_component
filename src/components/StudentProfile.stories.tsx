@@ -46,7 +46,7 @@ export const Default: Story = {
     email_verified: new Date(),
     gender: '남자',
     image: 'https://via.placeholder.com/150',
-    has_car: true,
+    has_car: 1,
     keyword_list: {},
     created_at: new Date(),
     updated_at: new Date(),

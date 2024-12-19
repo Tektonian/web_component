@@ -8,7 +8,7 @@ import {
   Tab,
   Divider,
 } from "@mui/material";
-import CorpProfileCard, { CorpProfileProps } from "./CorpProfileCard";
+import CorpProfileCard, { CorpProfileData } from "./CorpProfileCard";
 import RequestCard, { RequestCardProps } from "./RequestCard";
 
 export interface RequestData {
@@ -29,8 +29,8 @@ export interface RequestData {
 
 export interface RequestDataCardProps {
   requestData: RequestData;
-  corpCard: CorpProfileProps;
-  pastRequests: RequestCardProps[]
+  corpCard: CorpProfileData;
+  otherRequests: RequestCardProps[]
 }
 
 interface TabPanelProps {
@@ -45,7 +45,7 @@ const TabPanel: React.FC<TabPanelProps> = ({ children, index, value }) => (
   </Box>
 );
 
-const RequestDataCard: React.FC<RequestDataCardProps> = ({ requestData, corpCard, pastRequests }) => {
+const RequestDataCard: React.FC<RequestDataCardProps> = ({ requestData, corpCard, otherRequests }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const googleMapsKey = "AIzaSyB8_1BXxTpvEJHABsLs2EXXNZ1MqS5Kz0c";
@@ -94,7 +94,6 @@ const RequestDataCard: React.FC<RequestDataCardProps> = ({ requestData, corpCard
           indicatorColor="secondary"
           textColor="inherit"
           variant="fullWidth"
-          aria-label="full width tabs example"
         >
           <Tab label="상세 정보" />
           <Tab label="기업 정보" />
@@ -198,7 +197,7 @@ const RequestDataCard: React.FC<RequestDataCardProps> = ({ requestData, corpCard
           </Box>
 
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%" }}>
-            {pastRequests.map((request, index) => (
+            {otherRequests.map((request, index) => (
             <Box key={index} sx={{ width: "100%" }}>
               <RequestCard key={index} {...request} />
             </Box>

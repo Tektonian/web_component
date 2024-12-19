@@ -9,12 +9,12 @@ const meta: Meta<typeof StudentProfileCard> = {
   argTypes: {
     student_name: { control: 'text' },
     nationality: { control: 'text' },
-    age: { control: 'text' },
+    birth_date: { control: 'date' },
     phone_number: { control: 'text' },
     emergency_contact: { control: 'text' },
     gender: { control: 'text' },
     image: { control: 'text' },
-    has_car: { control: 'boolean' },
+    has_car: { control: 'number' },
     isMypage: { control: 'boolean' },
     onEditClick: { action: 'edit clicked' },
   },
@@ -28,21 +28,23 @@ export const Default: StoryObj<StudentAttributes> = Template.bind({});
 Default.args = {
   student_name: '김철수',
   nationality: '대한민국',
-  age: '25',
-  gender: '남성',
+  birth_date: new Date(),
+  gender: 0,
   image: 'https://via.placeholder.com/150',
-  has_car: true,
+  keyword_list: ["자유", "평등", "박애"],
+  has_car: 1,
 };
 
 export const MyPageView: StoryObj<StudentAttributes> = Template.bind({});
 MyPageView.args = {
   student_name: '박지성',
   nationality: '대한민국',
-  age: '30',
-  gender: '남성',
+  birth_date: new Date(),
+  gender: 0,
   phone_number: '010-1234-5678',
   emergency_contact: '010-8765-4321',
   image: 'https://via.placeholder.com/150',
-  has_car: true,
+  has_car: 1,
+  keyword_list: ["자유", "평등", "박애"],
   isMypage: true,
 };

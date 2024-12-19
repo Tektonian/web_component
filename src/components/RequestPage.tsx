@@ -130,7 +130,7 @@ const StudentMypage = () => {
         <Box
             sx={{
                 display: 'flex',
-                flexDirection: 'row',
+                flexDirection: { xs: 'column', md: 'row' },
                 justifyContent: 'center',
                 alignItems: 'flex-start',
                 gap: '24px',
@@ -140,8 +140,13 @@ const StudentMypage = () => {
             }}
             id={sections[0]}
         >
-            <Container sx={{ width: '712px', padding: '0 !important' }}>
-                <RequestDataCard requestData={requestDataExample} corpCard={corpProfileExample} past_requests={mockRequests}/>
+            <Container 
+                sx={{
+                width: { xs: '100%', md: '712px' },
+                padding: '0 !important',
+              }}
+              >
+                <RequestDataCard requestData={requestDataExample} corpCard={corpProfileExample} otherRequests={mockRequests}/>
             </Container>
 
             <Container 

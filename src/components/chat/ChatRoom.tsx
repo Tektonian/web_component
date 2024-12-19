@@ -1,68 +1,109 @@
-import React from 'react';
-import { Box, Card, Text, Flex, Avatar, Badge } from "@radix-ui/themes"
-import { PersonIcon } from '@radix-ui/react-icons';
-import { ClickArea } from "@toss/react"
+import React, { useState } from 'react';
+import { Avatar, Typography, ListItem, ListItemButton, ListItemText, ListItemAvatar, Checkbox, Badge } from "@mui/material";
+import PersonIcon from '@mui/icons-material/Person';
 
 interface IChatRoom {
     onClick: () => void;
     onContextMenu: () => void;
+    onLongPress: () => void;
     chatRoomId?: string;
+    isCheckbox: boolean;
     image?: string;
     title: string;
     enabled?: boolean;
     lastMessage: string;
     lastSentAt: Date;
     unreadCount: number;
+    checked: boolean;
+    onCheckboxToggle: (checked: boolean) => void;
 }
 
 const ChatRoom = (props: IChatRoom) => {
+    const [pressTimer, setPressTimer] = useState<NodeJS.Timeout | null>(null);
 
-    // Readings about flex item shrink and ellipsis
-    // https://velog.io/@eenaree/flex-item-ellipsis
-    // https://css-tricks.com/flexbox-truncated-text/
+    const handleMouseDown = () => {
+        const timer = setTimeout(() => {
+            props.onLongPress();
+        }, 1000);
+        setPressTimer(timer);
+    };
+
+    const handleMouseUp = () => {
+        if (pressTimer) {
+            clearTimeout(pressTimer);
+            setPressTimer(null);
+        } else {
+            props.onClick();
+        }
+    };
+
+    const handleCheckboxToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
+        props.onCheckboxToggle(event.target.checked);
+    };
+
     return (
-        <ClickArea onClick={()=>(props.onClick())} enabled={props.enabled}>
-            <Flex display="flex" gap="3" align="center" p="3">
-                {
-                    props.image === undefined ?
-                        <Avatar 
-                            size="4"
-                            radius="full"
-                            fallback={
-                            <PersonIcon radius="full"/>
-                        }/>
-                    :
+        <ListItem
+            disablePadding
+            secondaryAction={
+                props.isCheckbox && (
+                    <Checkbox
+                        edge="end"
+                        onChange={handleCheckboxToggle}
+                        checked={props.checked}
+                    />
+                )
+            }
+        >
+            <ListItemButton
+                onContextMenu={props.onContextMenu}
+                disabled={!props.enabled}
+                onMouseDown={handleMouseDown}
+                onMouseUp={handleMouseUp}
+                style={{
+                    padding: "12px",
+                    borderBottom: "1px solid #ccc",
+                }}
+                sx={{
+                    '&:hover': {
+                        backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                    },
+                    '&:active': {
+                        backgroundColor: 'rgba(0, 0, 0, 0.16)',
+                    },
+                }}
+            >
+                <ListItemAvatar>
+                    <Badge badgeContent={props.unreadCount} color="primary">
                         <Avatar
-                            size="4"
                             src={props.image}
-                            radius="full"
-                            fallback={props.title}
-                        />
-                }
-                <Box flexGrow="1" flexShrink="1" minWidth="0">
-                    <Text as="p" size="3" weight="bold" truncate>
-                        {props.title}
-                    </Text>
-                    <Text as="p" size="2" color="gray" truncate>
-                        {props.lastMessage}
-                    </Text>
-                </Box>
-                <Flex  direction="column" align="end" justify="start" gap="2">
-                    <Text as="div" size="1">
-                        {props.lastSentAt.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: undefined})}
-                    </Text>
-                    {
-                        props.unreadCount === 0 ?
-                            <></>
-                        :
-                            <Badge radius="full">
-                                {props.unreadCount}
-                            </Badge>
+                            alt={props.title}
+                        >
+                            {!props.image && <PersonIcon />}
+                        </Avatar>
+                    </Badge>
+                </ListItemAvatar>
+                <ListItemText
+                    primary={
+                        <Typography
+                            variant="body1"
+                            style={{ fontWeight: 'bold', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                        >
+                            {props.title}
+                        </Typography>
                     }
-                </Flex>
-            </Flex>
-        </ClickArea>
-    )
-}
+                    secondary={
+                        <Typography
+                            variant="body2"
+                            color="textSecondary"
+                            style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}
+                        >
+                            {props.lastMessage}
+                        </Typography>
+                    }
+                />
+            </ListItemButton>
+        </ListItem>
+    );
+};
 
 export default ChatRoom;
