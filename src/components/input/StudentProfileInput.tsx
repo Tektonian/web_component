@@ -9,13 +9,10 @@ import {
 } from "@mui/material";
 import { Control } from "react-hook-form";
 import "@fontsource/noto-sans-kr";
-import {
-    ShortTextInput,
-    NavigationButton,
-    RadioInput,
-    DateInput,
-    GlobalNameInput,
-} from "web_component";
+import ShortTextInput from "./ShortTextInput"
+import RadioInput from "./RadioInput"
+import DateInput from "./DateInput"
+import GlobalNameInput from "./GlobalNameInput"
 
 export interface StudentProfileData {
     name_glb: {

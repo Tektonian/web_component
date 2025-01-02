@@ -33,7 +33,7 @@ const StudentProfileCard: React.FC<StudentAttributes> = ({
     return (
         <Card
             sx={{
-                maxWidth: '1080px',
+                width: '100%',
                 margin: 'auto',
                 borderRadius: '16px',
                 fontFamily: 'Noto Sans KR',
@@ -63,9 +63,9 @@ const StudentProfileCard: React.FC<StudentAttributes> = ({
             {isMypage && (<IconButton
                 onClick={onEditClick}
                 sx={{
-                    position: { xs: "relative" ,md: 'absolute' },
-                    top: { xs: "50%", md: 16 },
-                    right: { xs: "50%", md: 16 },
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
                     backgroundColor: '#f5f5f5',
                     '&:hover': {
                         backgroundColor: '#e0e0e0',

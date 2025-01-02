@@ -1,7 +1,6 @@
 export { default as StudentCard } from "./student/StudentCard";
 export { default as AcademicHistoryCard } from "./student/AcademicHistoryCard";
 export { default as LanguageCard } from "./student/LanguageCard";
-export { default as NavigationButton } from "./NavigationButton";
 
 export { default as CorpProfileCard } from "./corporation/CorpProfileCard";
 export { default as StudentProfileCard } from "./student/StudentProfileCard";
@@ -34,6 +33,8 @@ export { default as CorpProfileInput } from "./input/CorpProfileInput";
 export { default as StudentProfileInput } from "./input/StudentProfileInput";
 export { default as UserTypeInput } from "./input/UserTypeInput";
 export { default as EmailTokenInput } from "./input/EmailTokenInput";
+export { default as ReviewOfCorpInput } from "./input/ReviewOfCorpInput";
+export { default as ReviewOfStudentInput } from "./input/ReviewOfStudentInput";
 
 export * as MenuButton from "./chat/MenuButton";
 

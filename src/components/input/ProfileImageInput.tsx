@@ -162,8 +162,6 @@ const ProfileImageInput: React.FC<ProfileImageInputProps> = ({
                 alignItems="center"
                 mt={3}
             >
-                <NavigationButton label="previous" onClick={onPrevious} />
-                <NavigationButton label="next" onClick={onNext} />
             </Box>
         </Container>
     );

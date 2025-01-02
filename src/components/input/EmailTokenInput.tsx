@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NavigationButton from "../NavigationButton";
 import ShortTextInput from "./ShortTextInput"
 import { Box, Typography, Grid2 as Grid, Card, CardContent, Button } from "@mui/material";
 import { Control, useWatch } from "react-hook-form";

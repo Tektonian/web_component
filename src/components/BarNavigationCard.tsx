@@ -13,51 +13,41 @@ const BarNavigationCard: React.FC<BarNavigationCardProps> = ({ onPrevious, onNex
   return (
     <Card
       sx={{
+        width: "100%",
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'stretch',
         padding: 1,
         borderRadius: '16px',
-        fontFamily: 'Noto Sans KR',
         boxShadow: 'none',
         border: '1px solid #d3d3d3',
         backgroundColor: '#f5f5f5',
-        maxWidth: '500px',
         margin: 'auto',
       }}
     >
 
-      <Box
+      <IconButton
         sx={{
           display: 'flex',
-          alignItems: 'center',
           cursor: 'pointer',
+          color: '#333',
         }}
         onClick={onPrevious}
       >
-        <IconButton>
-          <NavigateBeforeIcon sx={{ color: '#333' }} />
-        </IconButton>
-        <Typography variant="body1" sx={{ fontFamily: 'Noto Sans KR', fontSize: '1rem', color: '#333' }}>
-          뒤로
-        </Typography>
-      </Box>
+        <NavigateBeforeIcon />
+      </IconButton>
 
-      <Box
+
+      <IconButton
         sx={{
           display: 'flex',
-          alignItems: 'center',
           cursor: 'pointer',
+          color: '#333',
         }}
         onClick={onNext}
       >
-        <Typography variant="body1" sx={{ fontFamily: 'Noto Sans KR', fontSize: '1rem', color: '#333' }}>
-          다음
-        </Typography>
-        <IconButton>
-          <NavigateNextIcon sx={{ color: '#333' }} />
-        </IconButton>
-      </Box>
+        <NavigateNextIcon />
+      </IconButton>
     </Card>
   );
 };
