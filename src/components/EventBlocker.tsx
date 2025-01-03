@@ -43,14 +43,22 @@ const LongPress = (props: LongPressEnablerProps) => {
         }
     };
 
+    /**
+     * https://ui.toast.com/posts/ko_20220106
+     */
     return (
         <>
             <label
                 onMouseDownCapture={eventCaptureHandler}
                 onMouseUpCapture={eventCaptureHandler}
                 onClickCapture={eventCaptureHandler}
-                onTouchStartCapture={eventCaptureHandler}
-                onTouchEnd={eventCaptureHandler}
+                // Ref: https://velog.io/@ckstn0777/%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%9B%B9-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-pinch-zoom-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-2
+                onTouchStartCapture={(e)=>{
+                    handleMouseDown(e);
+                }}
+                onTouchEnd={(e)=>{
+                    handleMouseUp(e);
+                }}
                 onMouseDown={handleMouseDown}
                 onMouseUp={handleMouseUp}
                 htmlFor={id}
