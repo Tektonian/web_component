@@ -134,12 +134,12 @@ const ReviewOfStudentCard: React.FC<ReviewOfStudentCardProps> = ({
         {need_improve && (
           <Grid container spacing={2} sx={{ marginTop: 2 }}>
             <Grid size={3}>
-              <Typography variant="body1" sx={{ fontFamily: 'Noto Sans KR', fontSize: '1rem', fontWeight: 'bold' }}>
+              <Typography variant="body1" whiteSpace="pre-line" sx={{ fontFamily: 'Noto Sans KR', fontSize: '1rem', fontWeight: 'bold' }}>
                 개선:
               </Typography>
             </Grid>
             <Grid size={9}>
-              <Typography variant="body1" sx={{ fontFamily: 'Noto Sans KR' }}>{need_improve}</Typography>
+              <Typography variant="body1" whiteSpace="pre-line" sx={{ fontFamily: 'Noto Sans KR' }}>{need_improve}</Typography>
             </Grid>
           </Grid>
         )}

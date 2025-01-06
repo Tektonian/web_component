@@ -28,9 +28,9 @@ export const Default: StoryObj<StudentAttributes> = Template.bind({});
 Default.args = {
   student_name: '김철수',
   nationality: '대한민국',
-  birth_date: new Date(),
+  birth_date: new Date().toString(),
   gender: 0,
-  image: 'https://via.placeholder.com/150',
+  image: 'https://picsum.photos/150',
   keyword_list: ["자유", "평등", "박애"],
   has_car: 1,
 };
@@ -39,11 +39,11 @@ export const MyPageView: StoryObj<StudentAttributes> = Template.bind({});
 MyPageView.args = {
   student_name: '박지성',
   nationality: '대한민국',
-  birth_date: new Date(),
+  birth_date: new Date().toString(),
   gender: 0,
   phone_number: '010-1234-5678',
   emergency_contact: '010-8765-4321',
-  image: 'https://via.placeholder.com/150',
+  image: 'https://picsum.photos/150',
   has_car: 1,
   keyword_list: ["자유", "평등", "박애"],
   isMypage: true,

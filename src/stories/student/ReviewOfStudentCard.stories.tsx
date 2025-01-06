@@ -34,7 +34,7 @@ export const Default: Story = {
     lang_fluent: 9,
     goal_fulfillment: 7,
     want_cowork: 7,
-    praise: 'Great attitude and teamwork.',
+    praise: 'Great attitude and teamwork.Great attitude and teamwork.Great attitude and teamwork.',
     need_improve: 'Needs to manage time better.',
     created_at: new Date('2023-01-01T10:00:00Z'),
     updated_at: new Date('2023-02-01T10:00:00Z'),
