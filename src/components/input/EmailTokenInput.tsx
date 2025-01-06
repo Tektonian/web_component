@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import ShortTextInput from "./ShortTextInput"
-import { Box, Typography, Grid2 as Grid, Card, CardContent, Button } from "@mui/material";
+import ShortTextInput from "./ShortTextInput";
+import {
+    Box,
+    Typography,
+    Grid2 as Grid,
+    Card,
+    CardContent,
+    Button,
+} from "@mui/material";
 import { Control, useWatch } from "react-hook-form";
 
 export interface EmailTokenInputProps {
-    control: Control<any>; 
+    control: Control<any>;
     onSend: (verifyEmail: string, userType: string) => void;
     userType: "student" | "corp" | "orgn";
 }
@@ -19,8 +26,8 @@ const EmailTokenInput: React.FC<EmailTokenInputProps> = ({
 
     const email = useWatch({
         control,
-        name: "mail_address"
-    })
+        name: "mail_address",
+    });
 
     const handleSendEmail = () => {
         onSend(email, userType);
@@ -42,16 +49,16 @@ const EmailTokenInput: React.FC<EmailTokenInputProps> = ({
     return (
         <Card
             sx={{
-                maxWidth: '1080px',
-                margin: 'auto',
-                borderRadius: '16px',
-                fontFamily: 'Noto Sans KR',
-                color: 'rgba(0, 0, 0, 0.7)',
-                backgroundColor: '#f5f5f5',
-                boxShadow: 'none',
-                display: 'flex',
-                flexDirection: { xs: 'column', md: 'row' },
-                position: 'relative',
+                maxWidth: "1080px",
+                margin: "auto",
+                borderRadius: "16px",
+                fontFamily: "Noto Sans KR",
+                color: "rgba(0, 0, 0, 0.7)",
+                backgroundColor: "#f5f5f5",
+                boxShadow: "none",
+                display: "flex",
+                flexDirection: { xs: "column", md: "row" },
+                position: "relative",
             }}
         >
             <CardContent>
@@ -61,7 +68,11 @@ const EmailTokenInput: React.FC<EmailTokenInputProps> = ({
                             <Typography
                                 variant="body2"
                                 fontWeight="bold"
-                                sx={{ fontFamily: 'Noto Sans KR', fontSize: '1rem', color: 'rgba(0, 0, 0, 0.7)' }}
+                                sx={{
+                                    fontFamily: "Noto Sans KR",
+                                    fontSize: "1rem",
+                                    color: "rgba(0, 0, 0, 0.7)",
+                                }}
                             >
                                 메일 주소:
                             </Typography>
@@ -74,10 +85,10 @@ const EmailTokenInput: React.FC<EmailTokenInputProps> = ({
                             />
                         </Grid>
                         <Grid size={3}>
-                            <Button 
-                                variant="contained" 
-                                color="primary" 
-                                onClick={handleSendEmail} 
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={handleSendEmail}
                                 disabled={isButtonDisabled}
                             >
                                 {isButtonDisabled ? `${timer}초 남음` : "Send"}
@@ -87,7 +98,11 @@ const EmailTokenInput: React.FC<EmailTokenInputProps> = ({
                             <Typography
                                 variant="body2"
                                 fontWeight="bold"
-                                sx={{ fontFamily: 'Noto Sans KR', fontSize: '1rem', color: 'rgba(0, 0, 0, 0.7)' }}
+                                sx={{
+                                    fontFamily: "Noto Sans KR",
+                                    fontSize: "1rem",
+                                    color: "rgba(0, 0, 0, 0.7)",
+                                }}
                             >
                                 인증 토큰:
                             </Typography>

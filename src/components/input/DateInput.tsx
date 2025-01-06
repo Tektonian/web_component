@@ -11,7 +11,13 @@ export interface DateInputProps {
     sx?: object;
 }
 
-const DateInput: React.FC<DateInputProps> = ({ control, name, label, defaultValue, sx }) => (
+const DateInput: React.FC<DateInputProps> = ({
+    control,
+    name,
+    label,
+    defaultValue,
+    sx,
+}) => (
     <Controller
         name={name}
         control={control}
@@ -27,7 +33,7 @@ const DateInput: React.FC<DateInputProps> = ({ control, name, label, defaultValu
                 />
             </LocalizationProvider>
         )}
-    />   
+    />
 );
 
 export default DateInput;

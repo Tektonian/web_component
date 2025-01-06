@@ -1,63 +1,44 @@
-import React, { ButtonHTMLAttributes } from 'react';
-import { 
-    IconButton,
-    Divider,
-    Menu,
-    MenuItem,
-} from '@mui/material';
+import React, { ButtonHTMLAttributes } from "react";
+import { IconButton, Divider, Menu, MenuItem } from "@mui/material";
 
 interface IMenuContext {
-    handleClose: () => void
+    handleClose: () => void;
 }
-const MenuContext = React.createContext<IMenuContext | null>(null)
+const MenuContext = React.createContext<IMenuContext | null>(null);
 
-
-interface MenuButtonItemProps{
+interface MenuButtonItemProps {
     children: React.ReactElement;
 }
 const MenuButtonItem = (props: MenuButtonItemProps) => {
-    return (
-        <MenuItem>
-            {props.children}
-        </MenuItem>
-    )
+    return <MenuItem>{props.children}</MenuItem>;
+};
 
-}
-
-const MenuButtonItemWithClose = (props:MenuButtonItemProps) => {
+const MenuButtonItemWithClose = (props: MenuButtonItemProps) => {
     const context = React.useContext(MenuContext);
 
     if (!context) {
-        throw new Error('MyConsumer must be used within a MyProvider');
+        throw new Error("MyConsumer must be used within a MyProvider");
     }
 
-    const {handleClose} = context;
+    const { handleClose } = context;
 
-    return (
-        <MenuItem
-            onClick={handleClose}
-        >
-            {props.children}
-        </MenuItem>
-    )
-}
+    return <MenuItem onClick={handleClose}>{props.children}</MenuItem>;
+};
 
 const MenuButtonDivider = () => {
-    return (
-        <Divider sx={{ my: 0.5 }}/>
-    )
-}
+    return <Divider sx={{ my: 0.5 }} />;
+};
 
-
-interface MenuButtonProps{
+interface MenuButtonProps {
     label?: string;
     trigger: JSX.Element;
-    children:   React.ReactElement<MenuButtonItemProps>[] |
-                React.ReactElement<MenuButtonItemProps> |
-                React.ReactElement<HTMLButtonElement>[] |
-                React.ReactElement<HTMLButtonElement> |
-                React.ReactElement<typeof MenuButtonDivider> |
-                React.ReactNode ;
+    children:
+        | React.ReactElement<MenuButtonItemProps>[]
+        | React.ReactElement<MenuButtonItemProps>
+        | React.ReactElement<HTMLButtonElement>[]
+        | React.ReactElement<HTMLButtonElement>
+        | React.ReactElement<typeof MenuButtonDivider>
+        | React.ReactNode;
 }
 const MenuButton = (props: MenuButtonProps) => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -72,20 +53,20 @@ const MenuButton = (props: MenuButtonProps) => {
     };
 
     return (
-        <MenuContext.Provider value={{handleClose}}>
+        <MenuContext.Provider value={{ handleClose }}>
             <IconButton
                 id="chat-header-button"
-                aria-controls={open ? 'chat-header-menu' : undefined}
+                aria-controls={open ? "chat-header-menu" : undefined}
                 aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                aria-label='menu'
+                aria-expanded={open ? "true" : undefined}
+                aria-label="menu"
                 onClick={handleOpen}
                 color="inherit"
-                >
+            >
                 {props.trigger}
             </IconButton>
             <Menu
-                id='chat-header-menu'
+                id="chat-header-menu"
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
@@ -95,19 +76,23 @@ const MenuButton = (props: MenuButtonProps) => {
                     horizontal: "left",
                 }}
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                    vertical: "top",
+                    horizontal: "right",
                 }}
                 MenuListProps={{
-                    'aria-labelledby': 'chat-header-button',
+                    "aria-labelledby": "chat-header-button",
                 }}
             >
                 {props.children}
             </Menu>
         </MenuContext.Provider>
-    )
-}
+    );
+};
 
-
-export {MenuButton, MenuButtonItem as Item, MenuButtonItemWithClose as ItemWithClose, MenuButtonDivider as Divider}
-export type {MenuButtonItemProps, MenuButtonProps}
+export {
+    MenuButton,
+    MenuButtonItem as Item,
+    MenuButtonItemWithClose as ItemWithClose,
+    MenuButtonDivider as Divider,
+};
+export type { MenuButtonItemProps, MenuButtonProps };

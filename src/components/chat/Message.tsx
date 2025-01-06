@@ -13,11 +13,29 @@ export interface MessageProps {
     status: 0 | 1 | 2;
 }
 
-const Profile = ({ senderName, senderImage }: { senderName?: string; senderImage?: string }) => {
+const Profile = ({
+    senderName,
+    senderImage,
+}: {
+    senderName?: string;
+    senderImage?: string;
+}) => {
     return (
-        <Box sx={{ minWidth: 50, display: "flex", flexDirection: "column-reverse", alignItems: "center", justifyContent: "center" }}>
+        <Box
+            sx={{
+                minWidth: 50,
+                display: "flex",
+                flexDirection: "column-reverse",
+                alignItems: "center",
+                justifyContent: "center",
+            }}
+        >
             {senderName ? (
-                <Avatar alt={senderName} src={senderImage} sx={{ width: 40, height: 40 }}>
+                <Avatar
+                    alt={senderName}
+                    src={senderImage}
+                    sx={{ width: 40, height: 40 }}
+                >
                     {senderName[0]}
                 </Avatar>
             ) : (
@@ -81,26 +99,46 @@ const renderContent = (props: MessageProps) => {
     );
 };
 
-const Footer = ({ unread, sentAt, direction }: { unread?: number; sentAt?: Date; direction: "outgoing" | "inbound" }) => {
+const Footer = ({
+    unread,
+    sentAt,
+    direction,
+}: {
+    unread?: number;
+    sentAt?: Date;
+    direction: "outgoing" | "inbound";
+}) => {
     return (
         <Box
             sx={{
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-end",
-                alignItems: direction === "outgoing" ? "flex-end" : "flex-start",
+                alignItems:
+                    direction === "outgoing" ? "flex-end" : "flex-start",
                 textAlign: direction === "outgoing" ? "right" : "left",
                 marginLeft: 1,
                 marginRight: 1,
             }}
         >
             {sentAt && (
-                <Typography variant="caption" color="textSecondary" sx={{ marginBottom: 1 }}>
-                    {sentAt.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                <Typography
+                    variant="caption"
+                    color="textSecondary"
+                    sx={{ marginBottom: 1 }}
+                >
+                    {sentAt.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    })}
                 </Typography>
             )}
             {unread !== undefined && unread > 0 && (
-                <Badge badgeContent={unread} color="primary" sx={{ marginLeft: 1, marginRight: 1 }}/>
+                <Badge
+                    badgeContent={unread}
+                    color="primary"
+                    sx={{ marginLeft: 1, marginRight: 1 }}
+                />
             )}
         </Box>
     );
@@ -109,7 +147,14 @@ const Footer = ({ unread, sentAt, direction }: { unread?: number; sentAt?: Date;
 const Message = (props: MessageProps) => {
     if (props.direction === "alarm") {
         return (
-            <Box sx={{ display: "flex", flexDirection: "row", padding: 2, alignItems: "center" }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    padding: 2,
+                    alignItems: "center",
+                }}
+            >
                 {renderContent(props)}
             </Box>
         );
@@ -117,14 +162,25 @@ const Message = (props: MessageProps) => {
     return props.direction === "outgoing" ? (
         <Box sx={{ display: "flex", flexDirection: "row", padding: 2 }}>
             <Box sx={{ flexGrow: 1 }} />
-            <Footer sentAt={props.sentAt} unread={props.unread} direction={props.direction} />
+            <Footer
+                sentAt={props.sentAt}
+                unread={props.unread}
+                direction={props.direction}
+            />
             {renderContent(props)}
         </Box>
     ) : (
         <Box sx={{ display: "flex", flexDirection: "row", padding: 2 }}>
-            <Profile senderName={props.senderName} senderImage={props.senderImage} />
+            <Profile
+                senderName={props.senderName}
+                senderImage={props.senderImage}
+            />
             {renderContent(props)}
-            <Footer sentAt={props.sentAt} unread={props.unread} direction={props.direction} />
+            <Footer
+                sentAt={props.sentAt}
+                unread={props.unread}
+                direction={props.direction}
+            />
             <Box sx={{ flexGrow: 1 }} />
         </Box>
     );

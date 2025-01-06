@@ -1,9 +1,9 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import MessageList from './MessageList';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import MessageList from "./MessageList";
 
 export default {
-    title: 'Components/MessageList',
+    title: "Components/MessageList",
     component: MessageList,
 } as Meta;
 

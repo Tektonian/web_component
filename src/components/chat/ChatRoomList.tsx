@@ -1,6 +1,6 @@
-import React from 'react';
-import ChatRoom from './ChatRoom';
-import { List } from '@mui/material';
+import React from "react";
+import ChatRoom from "./ChatRoom";
+import { List } from "@mui/material";
 
 interface ChatRoomListProps {
     isCheckbox: boolean;
@@ -27,10 +27,16 @@ const ChatRoomList: React.FC<ChatRoomListProps> = ({
     handleContextMenu,
     handleClick,
     chatRooms,
-    selectedRooms
+    selectedRooms,
 }) => {
     return (
-        <List style={{ width: '100%', maxWidth: 1080, backgroundColor: '#f9f9f9' }}>
+        <List
+            style={{
+                width: "100%",
+                maxWidth: 1080,
+                backgroundColor: "#f9f9f9",
+            }}
+        >
             {chatRooms.map((room) => (
                 <ChatRoom
                     key={room.chatRoomId}
@@ -46,7 +52,9 @@ const ChatRoomList: React.FC<ChatRoomListProps> = ({
                     onClick={() => handleClick()}
                     onContextMenu={() => handleContextMenu()}
                     onLongPress={() => handleLongPress()}
-                    onCheckboxToggle={(checked) => handleCheckboxToggle(room.chatRoomId, checked)}
+                    onCheckboxToggle={(checked) =>
+                        handleCheckboxToggle(room.chatRoomId, checked)
+                    }
                 />
             ))}
         </List>
