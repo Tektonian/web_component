@@ -36,6 +36,7 @@ export { default as EmailTokenInput } from "./input/EmailTokenInput";
 export { default as ReviewOfCorpInput } from "./input/ReviewOfCorpInput";
 export { default as ReviewOfStudentInput } from "./input/ReviewOfStudentInput";
 
+export { default as MyPageProfileCard } from "./mypage/MyProfileCard";
 
 export * as MenuButton from "./chat/MenuButton";
 
