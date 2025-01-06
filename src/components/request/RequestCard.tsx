@@ -4,8 +4,9 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  Grid2 as Grid,
+  Stack,
   keyframes,
+  Paper,
 } from "@mui/material";
 
 export interface RequestCardProps {
@@ -14,7 +15,6 @@ export interface RequestCardProps {
   currency: string;
   address: string;
   start_date: string;
-  renderLogo: boolean;
   request_status: number;
   logo_image?: string;
   onClick: () => void;
@@ -36,7 +36,6 @@ const RequestCard = ({
   currency,
   address,
   start_date,
-  renderLogo,
   logo_image,
   request_status,
   onClick,
@@ -75,8 +74,11 @@ const RequestCard = ({
   const styles = getStatusStyles();
 
   return (
+    <Paper elevation={1} sx={{width: "100%"}}>
     <Card
       sx={{
+        minWidth: "350px",
+        width: "100%",
         maxWidth: "1080px",
         margin: "auto",
         borderRadius: "16px",
@@ -87,17 +89,21 @@ const RequestCard = ({
         cursor: "pointer",
         display: "flex",
         boxShadow: "none",
-        alignItems: "stretch",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        padding: "3px",
       }}
       onClick={onClick}
     >
-      {renderLogo && logo_image && (
+      {logo_image && logo_image && (
         <CardMedia
           component="img"
           image={logo_image}
           alt="Logo"
           sx={{
-            width: "114px",
+            minWidth: "0",
+            flex: "1",
+            maxWidth: "114px",
             borderRadius: "16px",
             marginTop: "14px",
             marginBottom: "14px",
@@ -109,6 +115,8 @@ const RequestCard = ({
       )}
       <CardContent
         sx={{
+          flex: "1",
+          minWidth: "0",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -118,8 +126,7 @@ const RequestCard = ({
           gap: "8px",
         }}
       >
-        <Grid container spacing={1}>
-          <Grid size={12}>
+          <Stack >
             <Typography
               variant="h5"
               component="div"
@@ -129,24 +136,24 @@ const RequestCard = ({
             >
               {title}
             </Typography>
-          </Grid>
-          <Grid size={12}>
+          </Stack>
+          <Stack >
             <Typography
               variant="body2"
               sx={{ fontFamily: "Noto Sans KR", color: "rgba(0, 0, 0, 0.7)" }}
             >
               {start_date}
             </Typography>
-          </Grid>
-          <Grid size={10.5}>
+          </Stack>
+          <Stack>
             <Typography
               variant="body2"
               sx={{ fontFamily: "Noto Sans KR", color: "rgba(0, 0, 0, 0.7)" }}
             >
               {address}
             </Typography>
-          </Grid>
-          <Grid size={1.5}>
+          </Stack>
+          <Stack >
             <Typography
               variant="body2"
               sx={{
@@ -157,10 +164,10 @@ const RequestCard = ({
             >
               {reward_price} {currency}
             </Typography>
-          </Grid>
-        </Grid>
+          </Stack>
       </CardContent>
     </Card>
+    </Paper>
   );
 };
 
