@@ -2,7 +2,7 @@ import React, { useState, useEffect, useId } from "react";
 interface LongPressEnablerProps {
     doPropagate: boolean;
     children: React.ReactElement;
-    onLongPress?: React.MouseEventHandler;
+    onLongPress?: React.EventHandler<React.SyntheticEvent>;
 }
 
 const LongPress = (props: LongPressEnablerProps) => {
@@ -21,22 +21,22 @@ const LongPress = (props: LongPressEnablerProps) => {
                 (
                     e: React.MouseEvent | React.TouchEvent | React.ChangeEvent,
                 ) => {
-                    console.log(e);
+                    // console.log(e);
                     e?.stopPropagation();
                 },
             );
         }
     }, []);
 
-    const handleMouseDown: React.MouseEventHandler = (e) => {
+    const handleMouseDown = (e: React.MouseEvent | React.TouchEvent) => {
         const timer = setTimeout(() => {
-            console.log(e);
+            // console.log(e);
             props.onLongPress?.(e);
         }, 1000);
         setPressTimer(timer);
     };
 
-    const handleMouseUp: React.MouseEventHandler = (e) => {
+    const handleMouseUp = () => {
         if (pressTimer) {
             clearTimeout(pressTimer);
             setPressTimer(null);
@@ -57,7 +57,7 @@ const LongPress = (props: LongPressEnablerProps) => {
                     handleMouseDown(e);
                 }}
                 onTouchEnd={(e) => {
-                    handleMouseUp(e);
+                    handleMouseUp();
                 }}
                 onMouseDown={handleMouseDown}
                 onMouseUp={handleMouseUp}
