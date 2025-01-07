@@ -1,9 +1,6 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import { Box, TextField, Autocomplete } from "@mui/material";
 import { Controller } from "react-hook-form";
-import type { AutocompleteProps } from "@mui/material/Autocomplete";
 import type { Control } from "react-hook-form";
 
 type CountryCode = string;

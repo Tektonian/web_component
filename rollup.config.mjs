@@ -27,6 +27,7 @@ const External = [
     "@fontsource/noto-sans-kr",
     "chart.js",
     "react-chartjs-2",
+    "dayjs",
 ];
 
 export default [

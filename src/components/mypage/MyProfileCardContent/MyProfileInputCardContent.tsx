@@ -1,4 +1,5 @@
-import { CardContent, Avatar, Typography, Grid2 as Grid } from "@mui/material";
+import React from "react";
+import { CardContent, Grid2 as Grid } from "@mui/material";
 import ShortTextInput from "../../input/ShortTextInput";
 import { CountrySelect } from "../../input/CountrySelect";
 import type { MyProfileCardData } from "./MyProfileCard.types";

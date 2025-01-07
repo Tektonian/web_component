@@ -1,7 +1,4 @@
 import React from "react";
-import { CardContent, Box, Typography, Grid2 as Grid } from "@mui/material";
-import { useForm } from "react-hook-form";
-import StudentProfileCardContent from "./StudentCardContent/StudentProfileCardContent";
 import StudentProfileInputCardContent from "./StudentCardContent/StudentProfileInputCardContent";
 import * as EditableCard from "../../input/EditableCard";
 import EditableCardHeader from "../../input/EditableCardHeader";

@@ -1,8 +1,8 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import StudentProfileInput from "../../components/student/StudentCard/StudentProfileInput";
-import type { StudentProfileData } from "../../components/student/StudentCard/StudentCardContent/StudentCard.types";
+import StudentProfileInput from "../../components/student/StudentCards/StudentProfileInput";
+import type { StudentProfileData } from "../../components/student/StudentCards/StudentCardContent/StudentCard.types";
 const meta: Meta<typeof StudentProfileInput> = {
     title: "inputs/StudentProfileInput",
     component: StudentProfileInput,

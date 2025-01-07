@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
-import StudentProfileCard from "../../components/student/StudentCard/StudentProfileCard";
-import type { StudentMyPageProfileData } from "../../components/student/StudentCard/StudentCardContent/StudentCard.types";
+import StudentProfileCard from "../../components/student/StudentCards/StudentProfileCard";
+import type { StudentMyPageProfileData } from "../../components/student/StudentCards/StudentCardContent/StudentCard.types";
 
 const meta: Meta<typeof StudentProfileCard> = {
     title: "student/StudentProfileCard",

@@ -1,3 +1,4 @@
+import React from "react";
 import { CardContent, Typography, Grid2 as Grid, Box } from "@mui/material";
 import GlobalNameInput from "../../../input/GlobalNameInput";
 import ShortTextInput from "../../../input/ShortTextInput";

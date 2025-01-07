@@ -1,3 +1,4 @@
+import React from "react";
 import { CardContent, Typography, Grid2 as Grid } from "@mui/material";
 
 import type { StudentMyPageProfileData } from "./StudentCard.types";

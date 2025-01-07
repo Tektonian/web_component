@@ -1,3 +1,4 @@
+import React from "react";
 import { CardContent, Avatar, Typography, Grid2 as Grid } from "@mui/material";
 import { countries } from "./MyProfileCard.types";
 import type { MyProfileCardData } from "./MyProfileCard.types";

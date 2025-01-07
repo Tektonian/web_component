@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { CardContent, Box, Typography, Grid2 as Grid } from "@mui/material";
 import { useForm } from "react-hook-form";
 import StudentProfileCardContent from "./StudentCardContent/StudentProfileCardContent";
 import StudentProfileInputCardContent from "./StudentCardContent/StudentProfileInputCardContent";
