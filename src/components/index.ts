@@ -3,7 +3,7 @@ export { default as AcademicHistoryCard } from "./student/AcademicHistoryCard";
 export { default as LanguageCard } from "./student/LanguageCard";
 
 export { default as CorpProfileCard } from "./corporation/CorpProfileCard";
-export { default as StudentProfileCard } from "./student/StudentProfileCard";
+export { default as StudentProfileCard } from "./student/StudentCard/StudentProfileCard";
 export { default as RequestCard } from "./request/RequestCard";
 export { default as RequestDataCard } from "./request/RequestDataCard";
 export { default as RequestSideCard } from "./request/RequestSideCard";
@@ -30,13 +30,13 @@ export { default as SelectInput } from "./input/SelectInput";
 export { default as TimeInput } from "./input/TimeInput";
 export { default as YearMonthInput } from "./input/YearMonthInput";
 export { default as CorpProfileInput } from "./input/CorpProfileInput";
-export { default as StudentProfileInput } from "./input/StudentProfileInput";
+export { default as StudentProfileInput } from "./student/StudentCard/StudentProfileInput";
 export { default as UserTypeInput } from "./input/UserTypeInput";
 export { default as EmailTokenInput } from "./input/EmailTokenInput";
 export { default as ReviewOfCorpInput } from "./input/ReviewOfCorpInput";
 export { default as ReviewOfStudentInput } from "./input/ReviewOfStudentInput";
 
-export { default as MyPageProfileCard } from "./mypage/MyProfileCard";
+export { default as MyProfileCard } from "./mypage/MyProfileCard";
 
 export * as MenuButton from "./chat/MenuButton";
 

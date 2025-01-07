@@ -3,7 +3,7 @@ import { TextField, TextFieldProps } from "@mui/material";
 import { Controller, Control } from "react-hook-form";
 
 export interface ShortTextInputProps {
-    control: Control<any>;
+    control?: Control<any>;
     name: string;
     label?: string;
     defaultValue?: string;
@@ -20,13 +20,14 @@ const ShortTextInput: React.FC<ShortTextInputProps> = ({
     <Controller
         name={name}
         control={control}
+        defaultValue={defaultValue}
         render={({ field }) => (
             <TextField
                 {...field}
+                value={field.value}
                 label={label}
                 fullWidth
                 variant="outlined"
-                defaultValue={defaultValue}
                 sx={sx}
             />
         )}

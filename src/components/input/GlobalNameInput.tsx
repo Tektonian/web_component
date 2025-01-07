@@ -1,59 +1,43 @@
 import React from "react";
 import { Control, Controller } from "react-hook-form";
 import { TextField, Grid2 as Grid, MenuItem } from "@mui/material";
-
+import { CountrySelect } from "./CountrySelect";
 interface GlobalNameInputProps {
     control: Control<any>;
     name: string;
     availableLanguages?: string[];
-    defaultValue?: {
-        language: string;
-        name: string;
-    };
+    defaultValue?: { [countryCode: string]: string };
 }
 
 const GlobalNameInput: React.FC<GlobalNameInputProps> = ({
     control,
     name,
-    availableLanguages,
+    availableLanguages = ["KR", "US", "JP"],
     defaultValue,
 }) => {
     return (
         <Grid container spacing={2}>
-            {[0, 1, 2].map((index) => (
-                <Grid size={12} key={index}>
+            {availableLanguages.map((val, idx) => (
+                <Grid size={12} key={idx}>
                     <Grid container spacing={2}>
                         <Grid size={3}>
-                            <Controller
-                                name={`${name}[${index}].language`}
+                            <CountrySelect
+                                disabled
+                                defaultCountry={val.toUpperCase()}
+                                stdNationality="KR" // TODO: add user nationality information alter
                                 control={control}
-                                defaultValue={defaultValue}
-                                render={({ field }) => (
-                                    <TextField
-                                        {...field}
-                                        select
-                                        label={`Language ${index + 1}`}
-                                        fullWidth
-                                        variant="outlined"
-                                    >
-                                        {availableLanguages?.map((lang) => (
-                                            <MenuItem key={lang} value={lang}>
-                                                {lang}
-                                            </MenuItem>
-                                        ))}
-                                    </TextField>
-                                )}
+                                name={""}
                             />
                         </Grid>
                         <Grid size={9}>
                             <Controller
-                                name={`${name}[${index}].name`}
+                                name={`${name}[${val}]`}
                                 control={control}
-                                defaultValue=""
+                                defaultValue={defaultValue?.[val] ?? ""}
                                 render={({ field }) => (
                                     <TextField
                                         {...field}
-                                        label={`Name ${index + 1}`}
+                                        label={`Name ${idx + 1}`}
                                         fullWidth
                                         variant="outlined"
                                     />

@@ -1,64 +1,27 @@
-import React from "react";
-import {
-    Card,
-    CardContent,
-    CardMedia,
-    Typography,
-    Avatar,
-} from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
-import ReviewsIcon from "@mui/icons-material/Reviews";
-import HistoryIcon from "@mui/icons-material/History";
+import React, { useState } from "react";
+import { Card, CardMedia } from "@mui/material";
+import MyProfileCardContent from "./MyProfileCardContent/MyProfileCardContent";
+import MyProfileInputCardContent from "./MyProfileCardContent/MyProfileInputCardContent";
+import EditableCardHeader from "../input/EditableCardHeader";
+import { useForm } from "react-hook-form";
 import "@fontsource/noto-sans-kr";
 
-export interface MyProfileCardProps {
-    name: string;
-    image?: string;
-    location?: string;
+import type { MyProfileCardData } from "./MyProfileCardContent/MyProfileCard.types";
+
+export interface MyProfileCardProps extends MyProfileCardData {
+    isEditMode?: boolean;
+    onClickSaveIcon?: React.MouseEventHandler;
 }
 
-function stringToColor(string: string) {
-    let hash = 0;
-    let i;
-
-    /* eslint-disable no-bitwise */
-    for (i = 0; i < string.length; i += 1) {
-        hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = "#";
-
-    for (i = 0; i < 3; i += 1) {
-        const value = (hash >> (i * 8)) & 0xff;
-        color += `00${value.toString(16)}`.slice(-2);
-    }
-    /* eslint-enable no-bitwise */
-
-    return color;
-}
-
-function stringAvatar(name: string) {
-    if (name.split(" ").length < 2) {
-        return {
-            sx: {
-                bgcolor: stringToColor(name),
-            },
-            children: `${name.split(" ")[0][0]}`,
-        };
-    }
-    return {
-        sx: {
-            bgcolor: stringToColor(name),
-        },
-        children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-    };
-}
-
-const MyProfileCard: React.FC<MyProfileCardProps> = ({
-    name,
-    image,
-    location,
-}) => {
+const MyProfileCard = ({
+    isEditMode = false,
+    onClickSaveIcon,
+    ...props
+}: MyProfileCardProps) => {
+    const [editMode, setEditMode] = useState(isEditMode);
+    const { control } = useForm<MyProfileCardData>({
+        defaultValues: props,
+    });
     return (
         <Card
             sx={{
@@ -66,6 +29,7 @@ const MyProfileCard: React.FC<MyProfileCardProps> = ({
                     xs: "100%",
                     sm: "300px",
                 },
+                position: "relative",
             }}
         >
             <CardMedia
@@ -75,20 +39,19 @@ const MyProfileCard: React.FC<MyProfileCardProps> = ({
                     objectFit: "cover",
                     backgroundPosition: "bottom",
                 }}
+            ></CardMedia>
+            <EditableCardHeader
+                editMode={editMode}
+                disabled={false}
+                onClickCloseIcon={() => setEditMode(false)}
+                onClickEditIcon={() => setEditMode(true)}
+                onClickSaveIcon={onClickSaveIcon}
             />
-            <CardContent>
-                {image === undefined ? (
-                    <Avatar {...stringAvatar(name)} />
-                ) : (
-                    <Avatar src={image} />
-                )}
-                <Typography component="div" variant="h5" gutterBottom>
-                    {name}
-                </Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                    {location}
-                </Typography>
-            </CardContent>
+            {editMode === false ? (
+                <MyProfileCardContent {...props} />
+            ) : (
+                <MyProfileInputCardContent {...props} control={control} />
+            )}
         </Card>
     );
 };

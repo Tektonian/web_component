@@ -14,7 +14,7 @@ export interface RadioOption {
 }
 
 export interface RadioInputProps {
-    control: Control<any>;
+    control?: Control<any>;
     name: string;
     label?: string;
     options: RadioOption[];

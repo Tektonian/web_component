@@ -1,8 +1,7 @@
 import React from "react";
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
-import {
+import MyProfileCard, {
     MyProfileCardProps,
-    MyProfileCard,
 } from "../../components/mypage/MyProfileCard";
 
 const meta: Meta<typeof MyProfileCard> = {
@@ -12,6 +11,8 @@ const meta: Meta<typeof MyProfileCard> = {
         name: { type: "string" },
         image: { type: "string" },
         location: { type: "string" },
+        nationality: { type: "string" },
+        workingCountry: { type: "string" },
     },
 };
 
@@ -24,6 +25,8 @@ export const Default: Story = {
         name: "강제욱",
         image: "https://picsum.photos/200",
         location: "서울",
+        nationality: "KR",
+        workingCountry: "JP",
     },
 };
 
@@ -31,5 +34,7 @@ export const WithOutImage: Story = {
     args: {
         name: "Kang",
         location: "서울",
+        nationality: "KR",
+        workingCountry: "JP",
     },
 };

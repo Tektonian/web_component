@@ -1,10 +1,8 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import StudentProfileInput, {
-    StudentProfileData,
-} from "../../components/input/StudentProfileInput";
-
+import StudentProfileInput from "../../components/student/StudentCard/StudentProfileInput";
+import type { StudentProfileData } from "../../components/student/StudentCard/StudentCardContent/StudentCard.types";
 const meta: Meta<typeof StudentProfileInput> = {
     title: "inputs/StudentProfileInput",
     component: StudentProfileInput,
@@ -19,9 +17,9 @@ export default meta;
 const Template: StoryFn = () => {
     const { control } = useForm<StudentProfileData>({
         defaultValues: {
-            student_name: "John Doe",
-            nationality: "USA",
-            birth_date: new Date("2000-05-15"),
+            name_glb: { KR: "John" },
+            nationality: "KR",
+            birth_date: "2000-05-15",
             phone_number: "123-456-7890",
             emergency_contact: "987-654-3210",
             gender: 1,
@@ -33,10 +31,11 @@ const Template: StoryFn = () => {
 
     return (
         <StudentProfileInput
-            initialData={{
-                student_name: "John Doe",
-                nationality: "USA",
-                birth_date: new Date("2000-05-15"),
+            control={control}
+            {...{
+                name_glb: { KR: "John" },
+                nationality: "KR",
+                birth_date: "2000-05-15",
                 phone_number: "123-456-7890",
                 emergency_contact: "987-654-3210",
                 gender: 1,
@@ -44,7 +43,6 @@ const Template: StoryFn = () => {
                 has_car: 1,
                 keyword_list: ["자유", "평등", "박애"],
             }}
-            control={control}
         />
     );
 };
