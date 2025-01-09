@@ -1,22 +1,22 @@
 import React from "react";
 import { TextField, TextFieldProps } from "@mui/material";
 import { Controller, Control } from "react-hook-form";
-
-export interface ShortTextInputProps {
-    control?: Control<any>;
-    name: string;
+import type { FieldValues, FieldPath, FieldPathValue } from "react-hook-form";
+export interface ShortTextInputProps<F extends FieldValues> {
+    control?: Control<F>;
+    name: FieldPath<F>;
     label?: string;
-    defaultValue?: string;
+    defaultValue?: FieldPathValue<F, FieldPath<F>>;
     sx?: object;
 }
 
-const ShortTextInput: React.FC<ShortTextInputProps> = ({
+const ShortTextInput = <F extends FieldValues>({
     control,
     name,
     label,
     defaultValue,
     sx,
-}) => (
+}: ShortTextInputProps<F>) => (
     <Controller
         name={name}
         control={control}

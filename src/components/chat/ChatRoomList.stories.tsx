@@ -19,6 +19,7 @@ const Template: StoryFn = (args) => {
     };
 
     return (
+        // @ts-ignore: ChatRoomList is only for demo. we don't use it
         <ChatRoomList
             {...args}
             selectedRooms={selectedRooms}

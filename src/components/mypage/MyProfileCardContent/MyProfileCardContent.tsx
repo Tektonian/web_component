@@ -41,7 +41,7 @@ function stringAvatar(name: string) {
 }
 
 const MyProfileCardContent = ({
-    name,
+    username,
     image,
     location,
     nationality,
@@ -50,14 +50,14 @@ const MyProfileCardContent = ({
     return (
         <CardContent>
             {image === undefined ? (
-                <Avatar {...stringAvatar(name)} />
+                <Avatar {...stringAvatar(username)} />
             ) : (
                 <Avatar src={image} />
             )}
             <Grid container spacing={2}>
                 <Grid size={6}>
                     <Typography component="div" variant="h5" gutterBottom>
-                        {name}
+                        {username}
                     </Typography>
                 </Grid>
                 <Grid

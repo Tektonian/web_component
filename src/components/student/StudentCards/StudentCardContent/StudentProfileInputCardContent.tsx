@@ -172,22 +172,22 @@ const StudentProfileInputCardContent = ({
                 <Grid size={3}>
                     <ShortTextInput
                         control={control}
-                        name={`keyword_list[${0}]`}
-                        defaultValue={keyword_list[0]}
+                        name={`keyword_list.0`}
+                        defaultValue={keyword_list.at(0) ?? ""}
                     />
                 </Grid>
                 <Grid size={3}>
                     <ShortTextInput
                         control={control}
-                        name={`keyword_list[${1}]`}
-                        defaultValue={keyword_list[1]}
+                        name={`keyword_list.1`}
+                        defaultValue={keyword_list.at(1) ?? ""}
                     />
                 </Grid>
                 <Grid size={3}>
                     <ShortTextInput
                         control={control}
-                        name={`keyword_list[${2}]`}
-                        defaultValue={keyword_list[2]}
+                        name={`keyword_list.2`}
+                        defaultValue={keyword_list.at(2) ?? ""}
                     />
                 </Grid>
             </Grid>

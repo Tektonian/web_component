@@ -19,14 +19,16 @@ export interface CorpProfileCardProps {
     biz_type?: string;
     logo_image?: string;
     site_url?: string;
-    isMypage?: boolean;
     corp_domain?: string;
     phone_number?: string;
     corp_num?: number;
     biz_num?: number;
     corp_status?: number;
-    onEditClick?: () => void;
-    onClick?: () => void;
+    isMypage: boolean;
+    showEditIcon: boolean;
+    editMode: boolean;
+    onEditClick?: React.MouseEventHandler;
+    onClick?: React.MouseEventHandler;
 }
 
 const CorpProfileCard: React.FC<CorpProfileCardProps> = ({
@@ -38,12 +40,14 @@ const CorpProfileCard: React.FC<CorpProfileCardProps> = ({
     biz_type,
     logo_image,
     site_url,
-    isMypage = false,
     corp_domain,
     phone_number,
     corp_num,
     biz_num,
     corp_status,
+    isMypage = false,
+    showEditIcon = false,
+    editMode = false,
     onEditClick,
     onClick,
 }) => {

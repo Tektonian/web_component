@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import "@fontsource/noto-sans-kr";
 
 import type { MyProfileCardData } from "./MyProfileCardContent/MyProfileCard.types";
-
+import type { FieldValues } from "react-hook-form";
 export interface MyProfileCardProps extends MyProfileCardData {
     isEditMode?: boolean;
     onClickSaveIcon?: React.MouseEventHandler;

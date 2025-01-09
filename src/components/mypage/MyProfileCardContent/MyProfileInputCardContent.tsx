@@ -4,12 +4,12 @@ import ShortTextInput from "../../input/ShortTextInput";
 import { CountrySelect } from "../../input/CountrySelect";
 import type { MyProfileCardData } from "./MyProfileCard.types";
 import type { Control } from "react-hook-form";
-
+import type { FieldValues } from "react-hook-form";
 interface MyProfileInputCardContentProps extends MyProfileCardData {
     control: Control<MyProfileCardData>;
 }
 const MyProfileInputCardContent = ({
-    name,
+    username,
     image,
     location,
     nationality,
@@ -22,7 +22,7 @@ const MyProfileInputCardContent = ({
                 <Grid size={6}>
                     <ShortTextInput
                         name={"username"}
-                        defaultValue={name}
+                        defaultValue={username}
                         control={control}
                     />
                 </Grid>
@@ -32,7 +32,10 @@ const MyProfileInputCardContent = ({
                 >
                     <CountrySelect
                         name="nationality"
+                        // TODO: add global later
+                        // @ts-ignore
                         defaultCountry={nationality}
+                        // @ts-ignore
                         control={control}
                     />
                 </Grid>
@@ -49,7 +52,10 @@ const MyProfileInputCardContent = ({
                 >
                     <CountrySelect
                         name="workingCountry"
+                        // TODO: Add global later
+                        // @ts-ignore
                         defaultCountry={workingCountry}
+                        // @ts-ignore
                         control={control}
                     />
                 </Grid>

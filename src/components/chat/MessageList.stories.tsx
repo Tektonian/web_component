@@ -7,6 +7,7 @@ export default {
     component: MessageList,
 } as Meta;
 
+// @ts-ignore: MessageList is only for demo. we dont' use it
 const Template: StoryFn = (args) => <MessageList {...args} />;
 
 export const Default = Template.bind({});

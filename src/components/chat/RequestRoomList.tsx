@@ -6,17 +6,17 @@ const reqs = [
     {
         title: "req 1",
         start_date: new Date(),
-        logo_image: "https://via.placeholder.com/40",
+        image: "https://via.placeholder.com/40",
     },
     {
         title: "req 2",
         start_date: new Date(),
-        logo_image: "https://via.placeholder.com/40",
+        image: "https://via.placeholder.com/40",
     },
     {
         title: "req 3",
         start_date: new Date(),
-        logo_image: "https://via.placeholder.com/40",
+        image: "https://via.placeholder.com/40",
     },
 ];
 
@@ -27,7 +27,7 @@ const RequestRoomList = () => {
                 <RequestRoom
                     key={index}
                     title={req.title}
-                    logo_image={req.logo_image}
+                    image={req.image}
                     onClick={() => console.log(`Clicked on ${req.title}`)}
                 />
             ))}

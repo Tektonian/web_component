@@ -1,16 +1,21 @@
 import * as React from "react";
 import { Box, TextField, Autocomplete } from "@mui/material";
 import { Controller } from "react-hook-form";
-import type { Control } from "react-hook-form";
 
-type CountryCode = string;
+import type { Control, FieldPath, FieldPathValue } from "react-hook-form";
+import { CountryCodeEnum } from "api_spec/enum";
+
+type CountryCodeValues = Record<string, CountryCodeEnum.COUNTRY_CODE_ENUM>;
 
 export interface CountrySelectProps {
-    name: string;
-    control: Control;
+    control?: Control<CountryCodeValues>;
+    name: FieldPath<CountryCodeValues>;
     disabled?: boolean;
     stdNationality?: string;
-    defaultCountry?: string;
+    defaultCountry?: FieldPathValue<
+        CountryCodeValues,
+        FieldPath<CountryCodeValues>
+    >;
 }
 
 export const CountrySelect = ({

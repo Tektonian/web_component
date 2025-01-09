@@ -27,7 +27,9 @@ const AcademicHistoryCard: React.FC<AcademicHistoryCardProps> = ({
             flexDirection: "row",
             alignItems: "center",
             gap: 2,
-            width: 480,
+            minWidth: 150,
+            maxWidth: 480,
+            width: "100%",
             padding: 2,
             boxShadow: 2,
             position: "relative",
@@ -77,13 +79,8 @@ const AcademicHistoryCard: React.FC<AcademicHistoryCardProps> = ({
             </Typography>
         </CardContent>
         <Chip
-            label={
-                status === 0
-                    ? "In Progress"
-                    : status === 1
-                      ? "Graduated"
-                      : "Leave of Absence"
-            }
+            // TODO: need global later
+            label={["재학중", "졸업", "휴학 또는 자퇴"].at(status) ?? ""}
             sx={{
                 position: "absolute",
                 top: 1,
@@ -91,8 +88,7 @@ const AcademicHistoryCard: React.FC<AcademicHistoryCardProps> = ({
                 fontSize: "0.76em",
                 fontWeight: "bold",
                 backgroundColor: "#ecf0f1",
-                color:
-                    status === 1 ? "indigo" : status === 0 ? "green" : "tomato",
+                color: ["indigo", "green", "tomato"].at(status) ?? "indigo",
             }}
         />
     </Card>
