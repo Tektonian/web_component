@@ -1,8 +1,7 @@
 import React from "react";
 import { CardContent, Avatar, Typography, Grid2 as Grid } from "@mui/material";
 import { countries } from "./MyProfileCard.types";
-import type { MyProfileCardData } from "./MyProfileCard.types";
-
+import type { APIType } from "api_spec";
 function stringToColor(string: string) {
     let hash = 0;
     let i;
@@ -45,8 +44,8 @@ const MyProfileCardContent = ({
     image,
     location,
     nationality,
-    workingCountry,
-}: MyProfileCardData) => {
+    working_country,
+}: APIType.UserType.UserData) => {
     return (
         <CardContent>
             {image === undefined ? (
@@ -100,8 +99,8 @@ const MyProfileCardContent = ({
                     <img
                         loading="lazy"
                         width="20"
-                        srcSet={`https://flagcdn.com/w40/${workingCountry.toLowerCase()}.png 2x`}
-                        src={`https://flagcdn.com/w20/${workingCountry.toLowerCase()}.png`}
+                        srcSet={`https://flagcdn.com/w40/${working_country.toLowerCase()}.png 2x`}
+                        src={`https://flagcdn.com/w20/${working_country.toLowerCase()}.png`}
                         alt=""
                     />
                     <Typography
@@ -111,8 +110,9 @@ const MyProfileCardContent = ({
                         {
                             // TODO: add global later
                             // @ts-ignore
-                            countries.find((val) => val.code === workingCountry)
-                                ?.name["KR"]
+                            countries.find(
+                                (val) => val.code === working_country,
+                            )?.name["KR"]
                         }
                     </Typography>
                 </Grid>

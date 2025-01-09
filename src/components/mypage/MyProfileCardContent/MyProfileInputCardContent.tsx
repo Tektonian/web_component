@@ -2,18 +2,18 @@ import React from "react";
 import { CardContent, Grid2 as Grid } from "@mui/material";
 import ShortTextInput from "../../input/ShortTextInput";
 import { CountrySelect } from "../../input/CountrySelect";
-import type { MyProfileCardData } from "./MyProfileCard.types";
 import type { Control } from "react-hook-form";
-import type { FieldValues } from "react-hook-form";
-interface MyProfileInputCardContentProps extends MyProfileCardData {
-    control: Control<MyProfileCardData>;
+import type { APIType } from "api_spec";
+
+interface MyProfileInputCardContentProps extends APIType.UserType.UserData {
+    control: Control<APIType.UserType.UserData>;
 }
 const MyProfileInputCardContent = ({
     username,
     image,
     location,
     nationality,
-    workingCountry,
+    working_country,
     control,
 }: MyProfileInputCardContentProps) => {
     return (
@@ -51,10 +51,10 @@ const MyProfileInputCardContent = ({
                     sx={{ display: "flex", alignItems: "center", gap: 1 }}
                 >
                     <CountrySelect
-                        name="workingCountry"
+                        name="working_country"
                         // TODO: Add global later
                         // @ts-ignore
-                        defaultCountry={workingCountry}
+                        defaultCountry={working_country}
                         // @ts-ignore
                         control={control}
                     />

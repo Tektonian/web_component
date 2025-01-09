@@ -6,9 +6,8 @@ import EditableCardHeader from "../input/EditableCardHeader";
 import { useForm } from "react-hook-form";
 import "@fontsource/noto-sans-kr";
 
-import type { MyProfileCardData } from "./MyProfileCardContent/MyProfileCard.types";
-import type { FieldValues } from "react-hook-form";
-export interface MyProfileCardProps extends MyProfileCardData {
+import { APIType } from "api_spec";
+export interface MyProfileCardProps extends APIType.UserType.UserData {
     isEditMode?: boolean;
     onClickSaveIcon?: React.MouseEventHandler;
 }
@@ -19,7 +18,7 @@ const MyProfileCard = ({
     ...props
 }: MyProfileCardProps) => {
     const [editMode, setEditMode] = useState(isEditMode);
-    const { control } = useForm<MyProfileCardData>({
+    const { control } = useForm<APIType.UserType.UserData>({
         defaultValues: props,
     });
     return (

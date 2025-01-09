@@ -4,11 +4,14 @@ import * as EditableCard from "../../input/EditableCard";
 import EditableCardHeader from "../../input/EditableCardHeader";
 import "@fontsource/noto-sans-kr";
 
+import type { APIType } from "api_spec";
 import type { Control } from "react-hook-form";
-import type { StudentProfileData } from "./StudentCardContent/StudentCard.types";
 
-interface StudentInputCardProps extends StudentProfileData {
-    control: Control<StudentProfileData>;
+interface StudentInputCardProps
+    extends Omit<APIType.StudentType.StudentProfileData, "student_id"> {
+    control: Control<
+        Omit<APIType.StudentType.StudentProfileData, "student_id">
+    >;
 }
 
 const StudentInputCard = ({

@@ -1,11 +1,4 @@
 import { CountryCodeEnum } from "api_spec/enum";
-export interface MyProfileCardData {
-    username: string;
-    image: string;
-    nationality: CountryCodeEnum.COUNTRY_CODE_ENUM;
-    workingCountry: CountryCodeEnum.COUNTRY_CODE_ENUM;
-    location: string;
-}
 
 interface CountryType {
     code: string;

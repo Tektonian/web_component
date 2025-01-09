@@ -1,14 +1,14 @@
 import React from "react";
 import { CardContent, Typography, Grid2 as Grid } from "@mui/material";
 
-import type { StudentMyPageProfileData } from "./StudentCard.types";
+import type { APIType } from "api_spec";
 
-interface StudentProfileCardContentProps extends StudentMyPageProfileData {
+interface StudentProfileCardContentProps
+    extends APIType.StudentType.StudentProfileData {
     isMyPage: boolean;
 }
 const StudentProfileCardContent = ({
     name_glb,
-    nationality,
     birth_date,
     phone_number,
     emergency_contact,
@@ -34,7 +34,8 @@ const StudentProfileCardContent = ({
                     marginBottom: 2,
                 }}
             >
-                {name_glb[nationality]}
+                {/* TODO: add global later */}
+                {name_glb["KR"] ?? name_glb["JP"] ?? name_glb["US"]}
             </Typography>
 
             <Grid container spacing={2}>
@@ -49,18 +50,6 @@ const StudentProfileCardContent = ({
                         }}
                     >
                         국적
-                    </Typography>
-                </Grid>
-                <Grid size={9}>
-                    <Typography
-                        variant="body2"
-                        sx={{
-                            fontFamily: "Noto Sans KR",
-                            fontSize: "1rem",
-                            color: "rgba(0, 0, 0, 0.7)",
-                        }}
-                    >
-                        {nationality}
                     </Typography>
                 </Grid>
 

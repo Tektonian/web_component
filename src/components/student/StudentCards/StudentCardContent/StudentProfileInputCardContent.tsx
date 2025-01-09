@@ -4,16 +4,18 @@ import GlobalNameInput from "../../../input/GlobalNameInput";
 import ShortTextInput from "../../../input/ShortTextInput";
 import RadioInput from "../../../input/RadioInput";
 import DateInput from "../../../input/DateInput";
-import type { StudentMyPageProfileData } from "./StudentCard.types";
+import type { APIType } from "api_spec";
 import type { Control } from "react-hook-form";
 
-interface StudentProfileInputCardContentProps extends StudentMyPageProfileData {
-    control: Control<StudentMyPageProfileData>;
+interface StudentProfileInputCardContentProps
+    extends Omit<APIType.StudentType.StudentProfileData, "student_id"> {
+    control: Control<
+        Omit<APIType.StudentType.StudentProfileData, "student_id">
+    >;
 }
 
 const StudentProfileInputCardContent = ({
     name_glb,
-    nationality,
     birth_date,
     phone_number,
     emergency_contact,

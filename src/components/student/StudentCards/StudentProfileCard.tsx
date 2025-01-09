@@ -7,9 +7,9 @@ import EditableCardHeader from "../../input/EditableCardHeader";
 import "@fontsource/noto-sans-kr";
 
 import type { Control } from "react-hook-form";
-import type { StudentProfileData } from "./StudentCardContent/StudentCard.types";
-
-interface StudentProfileCardProps extends StudentProfileData {
+import { APIType } from "api_spec";
+interface StudentProfileCardProps
+    extends APIType.StudentType.StudentProfileData {
     isMyPage?: boolean;
     isEditMode?: boolean;
     onClickSaveIcon?: React.MouseEventHandler;
@@ -24,7 +24,9 @@ const StudentProfileCard = ({
     const [editMode, setEditMode] = useState(isEditMode);
     const [dirted, setDirted] = useState(false);
 
-    const { control } = useForm<StudentProfileData>({
+    const { control } = useForm<
+        Omit<APIType.StudentType.StudentProfileData, "student_id">
+    >({
         defaultValues: defaultValues,
     });
 
