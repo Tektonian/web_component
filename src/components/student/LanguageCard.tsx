@@ -1,88 +1,81 @@
 import React from "react";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import {
+    Box,
+    Paper,
+    Card,
+    CardContent,
+    CardMedia,
+    Typography,
+} from "@mui/material";
 import "@fontsource/noto-sans-kr";
 
 export interface LanguageCardProps {
     level: number;
-    exam_result: string;
     exam_name: string;
     language: string;
+    image?: string;
 }
 
 type LevelColorProps = "indigo" | "purple" | "crimson";
 
-const levelToColor = (level: number): LevelColorProps => {
-    switch (level) {
-        case 1:
-            return "indigo";
-        case 2:
-            return "purple";
-        case 3:
-            return "crimson";
-        default:
-            return "indigo";
-    }
-};
-
 const LanguageCard: React.FC<LanguageCardProps> = ({
     level,
-    exam_result,
     exam_name,
     language,
+    image,
 }) => {
-    const color = levelToColor(level);
+    const color = ["indigo", "purple", "crimson"].at(level) ?? "indigo";
+    // TODO: need global later
+    const langClass = ["중급", "상급", "최상급"].at(level) ?? "중급";
 
     return (
-        <Card
+        <Paper
+            elevation={1}
             sx={{
-                width: "fit-content",
-                padding: 2,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 1,
+                minWidth: "fit-content",
+                maxWidth: "150px",
                 border: `2px solid ${color}`,
                 color: color,
             }}
         >
-            <CardContent
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: 1,
-                }}
-            >
-                <Box sx={{ display: "inline-flex", textAlign: "center" }}>
+            <Card>
+                {image && (
+                    <CardMedia
+                        component="img"
+                        height="50px"
+                        alt="Test image"
+                        image={image}
+                    />
+                )}
+                <CardContent
+                    sx={{
+                        padding: "2px",
+                        paddingBottom: "2px !important",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: 1,
+                    }}
+                >
                     <Typography
                         variant="h6"
-                        component="div"
                         sx={{
                             color: color,
-                            fontSize: "0.6em",
-                            fontWeight: "bold",
                         }}
                     >
-                        {language}
+                        <strong>{exam_name}</strong>
                     </Typography>
-                </Box>
-                <Box sx={{ display: "inline-flex", textAlign: "center" }}>
                     <Typography
                         variant="h5"
-                        component="p"
                         sx={{
                             color: color,
-                            fontSize: "1.4em",
-                            transform: "scale(1.0, 1.2)",
                         }}
                     >
-                        <strong>
-                            {exam_name}: {exam_result}
-                        </strong>
+                        {language} : {langClass}
                     </Typography>
-                </Box>
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
+        </Paper>
     );
 };
 
