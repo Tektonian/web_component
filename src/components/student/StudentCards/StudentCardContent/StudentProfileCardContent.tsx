@@ -35,7 +35,7 @@ const StudentProfileCardContent = ({
                 }}
             >
                 {/* TODO: add global later */}
-                {name_glb["KR"] ?? name_glb["JP"] ?? name_glb["US"]}
+                {name_glb["KO"] ?? name_glb["JP"] ?? name_glb["US"]}
             </Typography>
 
             <Grid container spacing={2}>

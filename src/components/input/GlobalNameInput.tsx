@@ -13,7 +13,7 @@ interface GlobalNameInputProps {
 const GlobalNameInput: React.FC<GlobalNameInputProps> = ({
     control,
     name,
-    availableLanguages = ["KR", "US", "JP"],
+    availableLanguages = ["KO", "US", "JP"],
     defaultValue,
 }) => {
     return (
@@ -25,7 +25,7 @@ const GlobalNameInput: React.FC<GlobalNameInputProps> = ({
                             <CountrySelect
                                 disabled
                                 defaultCountry={val}
-                                stdNationality="KR" // TODO: add user nationality information alter
+                                stdNationality="KO" // TODO: add user nationality information alter
                                 control={control}
                                 name={""}
                             />

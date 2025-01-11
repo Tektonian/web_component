@@ -28,7 +28,7 @@ const Template: StoryFn<StudentMyPageProfileData> = (args) => (
 export const Default: StoryObj<StudentMyPageProfileData> = Template.bind({});
 Default.args = {
     name_glb: { KR: "김철수" },
-    nationality: "KR",
+    nationality: "KO",
     birth_date: "1999-01-01",
     gender: 0,
     phone_number: "010-1234-5678",
@@ -41,7 +41,7 @@ Default.args = {
 export const MyPageView: StoryObj<StudentMyPageProfileData> = Template.bind({});
 MyPageView.args = {
     name_glb: { KR: "박지성" },
-    nationality: "KR",
+    nationality: "KO",
     birth_date: "1999-11-11",
     gender: 0,
     phone_number: "010-1234-5678",

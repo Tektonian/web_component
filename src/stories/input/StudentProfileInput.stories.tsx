@@ -18,7 +18,7 @@ const Template: StoryFn = () => {
     const { control } = useForm<StudentProfileData>({
         defaultValues: {
             name_glb: { KR: "John" },
-            nationality: "KR",
+            nationality: "KO",
             birth_date: "2000-05-15",
             phone_number: "123-456-7890",
             emergency_contact: "987-654-3210",
@@ -33,8 +33,8 @@ const Template: StoryFn = () => {
         <StudentProfileInput
             control={control}
             {...{
-                name_glb: { KR: "John" },
-                nationality: "KR",
+                name_glb: { KO: "John" },
+                nationality: "KO",
                 birth_date: "2000-05-15",
                 phone_number: "123-456-7890",
                 emergency_contact: "987-654-3210",

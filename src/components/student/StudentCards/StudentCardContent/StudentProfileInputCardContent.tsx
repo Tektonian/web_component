@@ -40,7 +40,7 @@ const StudentProfileInputCardContent = ({
                 <GlobalNameInput
                     control={control}
                     name="name_glb"
-                    availableLanguages={["US", "KR", "JP"]}
+                    availableLanguages={["US", "KO", "JP"]}
                     defaultValue={name_glb}
                 />
             </Box>

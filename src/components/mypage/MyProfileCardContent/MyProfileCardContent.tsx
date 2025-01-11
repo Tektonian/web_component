@@ -67,8 +67,8 @@ const MyProfileCardContent = ({
                     <img
                         loading="lazy"
                         width="20"
-                        srcSet={`https://flagcdn.com/w40/${nationality.toLowerCase()}.png 2x`}
-                        src={`https://flagcdn.com/w20/${nationality.toLowerCase()}.png`}
+                        srcSet={`https://flagcdn.com/w40/${nationality?.toLowerCase()}.png 2x`}
+                        src={`https://flagcdn.com/w20/${nationality?.toLowerCase()}.png`}
                         alt=""
                     />
                     <Typography
@@ -79,7 +79,7 @@ const MyProfileCardContent = ({
                             // TODO: add global later
                             // @ts-ignore
                             countries.find((val) => val.code === nationality)
-                                ?.name["KR"]
+                                ?.name["KO"]
                         }
                     </Typography>
                 </Grid>
@@ -99,8 +99,8 @@ const MyProfileCardContent = ({
                     <img
                         loading="lazy"
                         width="20"
-                        srcSet={`https://flagcdn.com/w40/${working_country.toLowerCase()}.png 2x`}
-                        src={`https://flagcdn.com/w20/${working_country.toLowerCase()}.png`}
+                        srcSet={`https://flagcdn.com/w40/${working_country?.toLowerCase()}.png 2x`}
+                        src={`https://flagcdn.com/w20/${working_country?.toLowerCase()}.png`}
                         alt=""
                     />
                     <Typography
@@ -112,7 +112,7 @@ const MyProfileCardContent = ({
                             // @ts-ignore
                             countries.find(
                                 (val) => val.code === working_country,
-                            )?.name["KR"]
+                            )?.name["KO"]
                         }
                     </Typography>
                 </Grid>

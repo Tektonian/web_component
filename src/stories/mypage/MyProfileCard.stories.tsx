@@ -25,7 +25,7 @@ export const Default: Story = {
         name: "강제욱",
         image: "https://picsum.photos/200",
         location: "서울",
-        nationality: "KR",
+        nationality: "KO",
         workingCountry: "JP",
     },
 };
@@ -34,7 +34,7 @@ export const WithOutImage: Story = {
     args: {
         name: "Kang",
         location: "서울",
-        nationality: "KR",
+        nationality: "KO",
         workingCountry: "JP",
     },
 };
