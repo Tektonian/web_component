@@ -4,7 +4,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 export interface ChatRoomHeaderProps {
     title: string;
-    menuItemList: React.ReactElement[];
+    menuItemList: React.ReactNode[];
     onBackClick: React.MouseEventHandler;
 }
 
@@ -39,7 +39,9 @@ const ChatRoomHeader: React.FC<ChatRoomHeaderProps> = ({
                     >
                         {title}
                     </Typography>
-                    {menuItemList.map((item) => item)}
+                    {menuItemList.map((item, idx) => (
+                        <React.Fragment key={idx}>{item}</React.Fragment>
+                    ))}
                 </Toolbar>
             </AppBar>
         </Box>
