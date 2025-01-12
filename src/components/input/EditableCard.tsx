@@ -26,7 +26,7 @@ const NormalMode = (props: ModeProps) => {
 interface EditableCardProps {
     cardImage?: string;
     editMode?: boolean;
-    header: ReturnType<typeof EditableCardHeader>;
+    header?: ReturnType<typeof EditableCardHeader>;
     children: React.ReactNode;
 }
 
