@@ -1,13 +1,11 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import CorpProfileInput, {
-    CorpProfileData,
-} from "../../components/input/CorpProfileInput";
+import CorpProfileInputCard from "../../components/input/CorpProfileInput";
 
-const meta: Meta<typeof CorpProfileInput> = {
+const meta: Meta<typeof CorpProfileInputCard> = {
     title: "inputs/CorpProfileInput",
-    component: CorpProfileInput,
+    component: CorpProfileInputCard,
     tags: ["autodocs"],
     parameters: {
         layout: "fullscreen",
@@ -17,7 +15,7 @@ const meta: Meta<typeof CorpProfileInput> = {
 export default meta;
 
 const Template: StoryFn = () => {
-    const { control } = useForm<CorpProfileData>({
+    const { control } = useForm<any>({
         defaultValues: {
             corp_name: "Tech Solutions Ltd.",
             nationality: "USA",
@@ -37,7 +35,7 @@ const Template: StoryFn = () => {
     });
 
     return (
-        <CorpProfileInput
+        <CorpProfileInputCard
             initialData={{
                 corp_name: "Tech Solutions Ltd.",
                 nationality: "USA",

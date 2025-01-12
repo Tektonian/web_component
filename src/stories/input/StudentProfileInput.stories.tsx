@@ -1,11 +1,10 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { useForm } from "react-hook-form";
-import StudentProfileInput from "../../components/student/StudentCards/StudentProfileInput";
-import type { StudentProfileData } from "../../components/student/StudentCards/StudentCardContent/StudentCard.types";
-const meta: Meta<typeof StudentProfileInput> = {
+import StudentInputCard from "../../components/student/StudentCards/StudentInputCard";
+const meta: Meta<typeof StudentInputCard> = {
     title: "inputs/StudentProfileInput",
-    component: StudentProfileInput,
+    component: StudentInputCard,
     tags: ["autodocs"],
     parameters: {
         layout: "fullscreen",
@@ -15,7 +14,7 @@ const meta: Meta<typeof StudentProfileInput> = {
 export default meta;
 
 const Template: StoryFn = () => {
-    const { control } = useForm<StudentProfileData>({
+    const { control } = useForm<any>({
         defaultValues: {
             name_glb: { KR: "John" },
             nationality: "KO",
@@ -30,7 +29,7 @@ const Template: StoryFn = () => {
     });
 
     return (
-        <StudentProfileInput
+        <StudentInputCard
             control={control}
             {...{
                 name_glb: { KO: "John" },
