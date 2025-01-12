@@ -32,7 +32,7 @@ const EmailTokenInput: React.FC<EmailTokenInputProps> = ({
     const handleSendEmail = () => {
         onSend(email, userType);
         setIsButtonDisabled(true);
-        setTimer(30);
+        setTimer(300);
 
         const countdown = setInterval(() => {
             setTimer((prev) => {
