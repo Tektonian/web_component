@@ -8,16 +8,10 @@ import {
     keyframes,
     Paper,
 } from "@mui/material";
+import { APIType } from "api_spec";
 
-export interface RequestCardProps {
-    title: string;
-    reward_price: number;
-    currency: string;
-    address: string;
-    start_date: string;
-    request_status: number;
-    logo_image?: string;
-    onClick: () => void;
+export interface RequestCardProps extends APIType.RequestType.RequestCard {
+    onClick?: () => void;
 }
 
 const rainbowAnimation = keyframes`

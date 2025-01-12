@@ -12,7 +12,7 @@ import CorpProfileCard, {
     CorpProfileCardProps,
 } from "../corporation/CorpProfileCard";
 import RequestCard, { RequestCardProps } from "./RequestCard";
-
+import { APIType } from "api_spec";
 export interface RequestData {
     title: string;
     content: string;
@@ -30,9 +30,9 @@ export interface RequestData {
 }
 
 export interface RequestDataCardProps {
-    requestData: RequestData;
-    corpCard: CorpProfileCardProps;
-    otherRequests: RequestCardProps[];
+    requestData: APIType.RequestType.ResGetRequest;
+    corpCard: APIType.CorporationType.CorpCardData;
+    otherRequests: APIType.RequestType.RequestCard[];
 }
 
 interface TabPanelProps {
@@ -56,7 +56,7 @@ const RequestDataCard: React.FC<RequestDataCardProps> = ({
 
     const googleMapsKey = "AIzaSyB8_1BXxTpvEJHABsLs2EXXNZ1MqS5Kz0c";
     const mapUrl = requestData.address_coordinate
-        ? `https://www.google.com/maps/embed/v1/place?key=${googleMapsKey}&q=${requestData.address_coordinate.coordinates[0]},${requestData.address_coordinate.coordinates[1]}`
+        ? `https://www.google.com/maps/embed/v1/place?key=${googleMapsKey}&q=${requestData.address_coordinate.lat},${requestData.address_coordinate.lng}`
         : undefined;
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -88,11 +88,11 @@ const RequestDataCard: React.FC<RequestDataCardProps> = ({
                     {requestData.title}
                 </Typography>
                 <Box display="flex" alignItems="center" marginBottom={3}>
-                    {corpCard.logo_image && (
+                    {corpCard?.logo_image && (
                         <Box
                             component="img"
                             src={corpCard.logo_image}
-                            alt={`${corpCard.corp_name} logo`}
+                            alt={`${corpCard?.corp_name} logo`}
                             sx={{
                                 width: 50,
                                 height: 50,
@@ -105,7 +105,7 @@ const RequestDataCard: React.FC<RequestDataCardProps> = ({
                         variant="subtitle1"
                         sx={{ fontFamily: "Noto Sans KR" }}
                     >
-                        {corpCard.corp_name}
+                        {corpCard?.corp_name ?? ""}
                     </Typography>
                 </Box>
                 <Tabs
@@ -278,7 +278,7 @@ const RequestDataCard: React.FC<RequestDataCardProps> = ({
                             width: "100%",
                         }}
                     >
-                        {otherRequests.map((request, index) => (
+                        {otherRequests?.map((request, index) => (
                             <Box key={index} sx={{ width: "100%" }}>
                                 <RequestCard key={index} {...request} />
                             </Box>
