@@ -5,7 +5,7 @@ export { default as LanguageCard } from "./student/LanguageCard";
 export { default as CorpProfileCard } from "./corporation/CorpProfileCard";
 export { default as StudentProfileCard } from "./student/StudentCards/StudentProfileCard";
 export { default as RequestCard } from "./request/RequestCard";
-export { default as RequestDataCard } from "./request/RequestDataCard";
+//export { default as RequestDataCard } from "./request/RequestDataCard";
 export { default as RequestSideCard } from "./request/RequestSideCard";
 export { default as StudentIndexCard } from "./student/StudentIndexCard";
 export { default as CorpIndexCard } from "./corporation/CorpIndexCard";
@@ -29,15 +29,18 @@ export { default as RatingInput } from "./input/RatingInput";
 export { default as SelectInput } from "./input/SelectInput";
 export { default as TimeInput } from "./input/TimeInput";
 export { default as YearMonthInput } from "./input/YearMonthInput";
-export { default as CorpProfileInput } from "./input/CorpProfileInput";
-export { default as StudentProfileInput } from "./student/StudentCards/StudentProfileInput";
+export { default as CorpProfileInputCard } from "./corporation/CorpProfileInputCard";
+export { default as StudentInputCard } from "./student/StudentCards/StudentInputCard";
 export { default as UserTypeInput } from "./input/UserTypeInput";
 export { default as EmailTokenInput } from "./input/EmailTokenInput";
 export { default as ReviewOfCorpInput } from "./input/ReviewOfCorpInput";
 export { default as ReviewOfStudentInput } from "./input/ReviewOfStudentInput";
 
 export { default as MyProfileCard } from "./mypage/MyProfileCard";
+export { default as StudentMyPageCard } from "./student/StudentCards/StudentMyPageCard";
 
 export * as MenuButton from "./chat/MenuButton";
 
 export { default as PageContainer } from "./container/PageContainer";
+
+export * as RoleBasedBlocker from "./common/RoleBasedBlocker";
