@@ -4,7 +4,7 @@ import { CardContent, Typography, Grid2 as Grid } from "@mui/material";
 import type { APIType } from "api_spec";
 
 interface StudentProfileCardContentProps
-    extends APIType.StudentType.StudentProfileData {
+    extends APIType.StudentType.StudentProfileData<true | false> {
     isMyPage: boolean;
 }
 const StudentProfileCardContent = ({

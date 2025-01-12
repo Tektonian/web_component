@@ -8,9 +8,9 @@ import type { APIType } from "api_spec";
 import type { Control } from "react-hook-form";
 
 interface StudentProfileInputCardContentProps
-    extends Omit<APIType.StudentType.StudentProfileData, "student_id"> {
+    extends Omit<APIType.StudentType.StudentProfileData<true>, "student_id"> {
     control: Control<
-        Omit<APIType.StudentType.StudentProfileData, "student_id">
+        Omit<APIType.StudentType.StudentProfileData<true>, "student_id">
     >;
 }
 
