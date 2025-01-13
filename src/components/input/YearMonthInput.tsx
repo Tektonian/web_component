@@ -9,7 +9,11 @@ export interface YearMonthInputProps {
     label: string;
 }
 
-const YearMonthInput: React.FC<YearMonthInputProps> = ({ control, name, label }) => (
+const YearMonthInput: React.FC<YearMonthInputProps> = ({
+    control,
+    name,
+    label,
+}) => (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Controller
             name={name}

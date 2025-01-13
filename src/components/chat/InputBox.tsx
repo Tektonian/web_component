@@ -1,6 +1,9 @@
 import React from "react";
 import { Box, IconButton, TextField } from "@mui/material";
-import { Send as SendIcon, AttachFile as AttachIcon } from "@mui/icons-material";
+import {
+    Send as SendIcon,
+    AttachFile as AttachIcon,
+} from "@mui/icons-material";
 
 interface InputBoxProps {
     value: string;

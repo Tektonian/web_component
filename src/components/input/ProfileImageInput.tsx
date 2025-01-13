@@ -23,12 +23,14 @@ const ProfileImageInput: React.FC<ProfileImageInputProps> = ({
             const images = Array(4)
                 .fill(null)
                 .map((_, index) =>
-                    blockies.create({
-                        seed: `blockies-${index}-${Math.random()}`,
-                        size: 8,
-                        scale: 20,
-                        bgcolor: "#ffffff",
-                    }).toDataURL()
+                    blockies
+                        .create({
+                            seed: `blockies-${index}-${Math.random()}`,
+                            size: 8,
+                            scale: 20,
+                            bgcolor: "#ffffff",
+                        })
+                        .toDataURL(),
                 );
             setDefaultImages(images);
         };
@@ -37,7 +39,7 @@ const ProfileImageInput: React.FC<ProfileImageInputProps> = ({
 
     const handleImageDrop = (
         event: React.DragEvent<HTMLDivElement>,
-        onChange: (url: string) => void
+        onChange: (url: string) => void,
     ) => {
         event.preventDefault();
         const file = event.dataTransfer.files[0];
@@ -54,7 +56,7 @@ const ProfileImageInput: React.FC<ProfileImageInputProps> = ({
 
     const handleDefaultImageClick = (
         url: string,
-        onChange: (url: string) => void
+        onChange: (url: string) => void,
     ) => {
         onChange(url);
         setPreviewUrl(url);
@@ -136,7 +138,7 @@ const ProfileImageInput: React.FC<ProfileImageInputProps> = ({
                                     onClick={() =>
                                         handleDefaultImageClick(
                                             url,
-                                            field.onChange
+                                            field.onChange,
                                         )
                                     }
                                     style={{
@@ -161,8 +163,7 @@ const ProfileImageInput: React.FC<ProfileImageInputProps> = ({
                 justifyContent="space-between"
                 alignItems="center"
                 mt={3}
-            >
-            </Box>
+            ></Box>
         </Container>
     );
 };
