@@ -4,7 +4,7 @@ import * as EditableCard from "../../input/EditableCard";
 import EditableCardHeader from "../../input/EditableCardHeader";
 import "@fontsource/noto-sans-kr";
 
-import type { APIType } from "api_spec";
+import type { APIType } from "@mesh/api_spec";
 import type { Control } from "react-hook-form";
 
 interface StudentInputCardProps

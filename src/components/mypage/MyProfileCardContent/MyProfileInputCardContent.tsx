@@ -3,7 +3,7 @@ import { CardContent, Grid2 as Grid } from "@mui/material";
 import ShortTextInput from "../../input/ShortTextInput";
 import { CountrySelect } from "../../input/CountrySelect";
 import type { Control } from "react-hook-form";
-import type { APIType } from "api_spec";
+import type { APIType } from "@mesh/api_spec";
 
 interface MyProfileInputCardContentProps extends APIType.UserType.UserData {
     control: Control<APIType.UserType.UserData>;

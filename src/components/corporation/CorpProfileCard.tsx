@@ -1,5 +1,5 @@
 import "@fontsource/noto-sans-kr";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 import React from "react";
 import * as EditableCard from "../input/EditableCard";
 import CorporationCardContent from "./CorporationCardContent/CorporationCardContent";

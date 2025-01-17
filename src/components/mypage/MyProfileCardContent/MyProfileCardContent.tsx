@@ -1,7 +1,7 @@
 import React from "react";
 import { CardContent, Avatar, Typography, Grid2 as Grid } from "@mui/material";
 import { countries } from "./MyProfileCard.types";
-import type { APIType } from "api_spec";
+import type { APIType } from "@mesh/api_spec";
 function stringToColor(string: string) {
     let hash = 0;
     let i;

@@ -9,8 +9,8 @@
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "module": "esnext",
-        "moduleResolution": "node",
+        "module": "Node16",
+        "moduleResolution": "node16",
         "resolveJsonModule": true,
         // tsc를 사용해 .js 파일이 아닌 .d.ts 파일이 생성되었는지 확인합니다.
         "declaration": true,

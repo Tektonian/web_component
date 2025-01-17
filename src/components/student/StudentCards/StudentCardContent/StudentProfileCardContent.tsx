@@ -1,7 +1,7 @@
 import React from "react";
 import { CardContent, Typography, Grid2 as Grid } from "@mui/material";
 
-import type { APIType } from "api_spec";
+import type { APIType } from "@mesh/api_spec";
 
 interface StudentProfileCardContentProps
     extends APIType.StudentType.StudentProfileData<true | false> {

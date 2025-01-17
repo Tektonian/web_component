@@ -6,7 +6,7 @@ import * as EditableCard from "./../..//input/EditableCard";
 import "@fontsource/noto-sans-kr";
 
 import type { Control } from "react-hook-form";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 interface StudentProfileCardProps
     extends APIType.StudentType.StudentProfileData<false> {
     onClickCard?: React.MouseEventHandler;

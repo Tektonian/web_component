@@ -4,7 +4,7 @@ import { Control } from "react-hook-form";
 import * as EditableCard from "../input/EditableCard";
 import CorporationInputCardContent from "./CorporationCardContent/CorporationInputCardContent";
 
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 
 interface CorpProfileInputProps extends APIType.CorporationType.CorpCardData {
     control: Control<APIType.CorporationType.CorpCardData>;

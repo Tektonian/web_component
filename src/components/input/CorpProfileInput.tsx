@@ -10,7 +10,7 @@ import {
 import { Control } from "react-hook-form";
 import "@fontsource/noto-sans-kr";
 import ShortTextInput from "./ShortTextInput";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 
 interface CorpProfileInputProps extends APIType.CorporationType.CorpCardData {
     control: Control<APIType.CorporationType.CorpCardData>;

@@ -3,7 +3,7 @@ import { CardContent, Box, Typography, Grid2 as Grid } from "@mui/material";
 import ShortTextInput from "../../input/ShortTextInput";
 import { CountrySelect } from "../../input/CountrySelect";
 import type { Control } from "react-hook-form";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 
 interface CorpInputCardContentProps
     extends APIType.CorporationType.CorpCardData {

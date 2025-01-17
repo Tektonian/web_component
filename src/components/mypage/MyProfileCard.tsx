@@ -6,7 +6,7 @@ import EditableCardHeader from "../input/EditableCardHeader";
 import { useForm } from "react-hook-form";
 import "@fontsource/noto-sans-kr";
 
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 export interface MyProfileCardProps extends APIType.UserType.UserData {
     isEditMode?: boolean;
     onClickSaveIcon?: React.MouseEventHandler;

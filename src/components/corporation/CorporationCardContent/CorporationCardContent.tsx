@@ -1,6 +1,6 @@
 import React from "react";
 import { CardContent, Box, Typography, Grid2 as Grid } from "@mui/material";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 
 interface CorpCardContent extends APIType.CorporationType.CorpCardData {}
 

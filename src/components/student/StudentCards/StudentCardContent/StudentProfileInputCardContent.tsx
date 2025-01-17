@@ -4,7 +4,7 @@ import GlobalNameInput from "../../../input/GlobalNameInput";
 import ShortTextInput from "../../../input/ShortTextInput";
 import RadioInput from "../../../input/RadioInput";
 import DateInput from "../../../input/DateInput";
-import type { APIType } from "api_spec";
+import type { APIType } from "@mesh/api_spec";
 import type { Control } from "react-hook-form";
 
 interface StudentProfileInputCardContentProps

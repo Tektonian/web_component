@@ -8,7 +8,7 @@ import {
     keyframes,
     Paper,
 } from "@mui/material";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 
 export interface RequestCardProps extends APIType.RequestType.RequestCard {
     onClick?: () => void;

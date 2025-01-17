@@ -7,7 +7,7 @@ import EditableCardHeader from "../../input/EditableCardHeader";
 import "@fontsource/noto-sans-kr";
 
 import type { Control } from "react-hook-form";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 interface StudentMyPageCardProps
     extends APIType.StudentType.StudentProfileData<true> {
     isEditMode?: boolean;

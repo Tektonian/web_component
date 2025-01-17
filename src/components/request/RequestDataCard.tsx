@@ -12,7 +12,7 @@ import CorpProfileCard, {
     CorpProfileCardProps,
 } from "../corporation/CorpProfileCard";
 import RequestCard, { RequestCardProps } from "./RequestCard";
-import { APIType } from "api_spec";
+import { APIType } from "@mesh/api_spec";
 export interface RequestData {
     title: string;
     content: string;
